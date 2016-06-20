@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Taipei',
 
     /*
     |--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'zh-tw',
 
     /*
     |--------------------------------------------------------------------------
@@ -108,7 +108,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => env('APP_LOG', 'daily'),
 
     /*
     |--------------------------------------------------------------------------
@@ -156,6 +156,15 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Composer Package Providers...
+         */
+        Collective\Html\HtmlServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        Arcanedev\LogViewer\LogViewerServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+
     ],
 
     /*
@@ -202,6 +211,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+         * Composer Package aliases
+         */
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Entrust' => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];
