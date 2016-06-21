@@ -74,6 +74,7 @@ Temporary Items
 .idea/dictionaries
 .idea/vcs.xml
 .idea/jsLibraryMappings.xml
+.idea/vagrant.xml
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
