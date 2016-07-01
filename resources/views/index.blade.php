@@ -1,7 +1,9 @@
 @extends('app')
 
-@section('title', 'Homepage')
+@section('title', '首頁')
 
 @section('content')
-    <h1>It works!</h1>
+    <div class="pusher">
+
+    </div>
 @endsection
