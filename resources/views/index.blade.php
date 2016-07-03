@@ -95,19 +95,19 @@
     </div>
     <div class="pusher frame curtain" id="header">
         <div class="ui vertical masthead center aligned segment">
-            {{--<div class="ui container">--}}
-                {{--<div class="ui large secondary inverted pointing menu">--}}
-                    {{--<a class="toc item">--}}
-                        {{--<i class="sidebar icon"></i>--}}
-                    {{--</a>--}}
-                    {{--<a class="active item" href="javascript:void(0)">首頁</a>--}}
-                    {{--<a class="item" href="javascript:void(0)">題目</a>--}}
-                    {{--<a class="item" href="javascript:void(0)">關於</a>--}}
-                    {{--<div class="right item">--}}
-                        {{--<a class="ui inverted button" href="javascript:void(0)">登入/註冊</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <a class="active item" href="javascript:void(0)">首頁</a>
+                    <a class="item" href="javascript:void(0)">題目</a>
+                    <a class="item" href="javascript:void(0)">關於</a>
+                    <div class="right item">
+                        <a class="ui inverted button" href="javascript:void(0)">登入/註冊</a>
+                    </div>
+                </div>
+            </div>
 
             <div class="ui text container">
                 <h1 class="ui inverted header">
