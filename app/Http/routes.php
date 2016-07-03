@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ 'as' => 'index', function () {
     return view('index');
-});
+}]);
+
+Route::get('about', [ 'as' => 'about', function () {
+    return view('about');
+}]);
+
+Route::resource('topic', 'TopicController');

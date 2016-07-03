@@ -15,9 +15,9 @@
     <body class="pushable">
         {{-- Navbar --}}
         <div class="ui large pointing inverted top menu transition hidden" style="z-index: 2;">
-            <a class="item" href="javascript:void(0)">首頁</a>
+            <a class="item" href="{!! route('index') !!}">首頁</a>
             <a class="item" href="javascript:void(0)">題目</a>
-            <a class="item" href="javascript:void(0)">關於</a>
+            <a class="item" href="{!! route('about') !!}">關於</a>
             <div class="right menu">
                 <div class="item">
                     <a class="ui button" href="javascript:void(0)">登入/註冊</a>
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="ui sidebar inverted vertical labeled icon menu" style="z-index: 2;">
-            <a class="item" href="javascript:void(0)" style="color: white;">
+            <a class="item" href="{!! route('index') !!}">
                 <i class="home icon"></i>
                 首頁
             </a>
@@ -33,13 +33,9 @@
                 <i class="book icon"></i>
                 題目
             </a>
-            <a class="item" href="javascript:void(0)">
+            <a class="item" href="{!! route('about') !!}">
                 <i class="info icon"></i>
                 關於
-            </a>
-            <a class="item" href="javascript:void(0)">
-                <i class="spy icon"></i>
-                登入/註冊
             </a>
         </div>
 
