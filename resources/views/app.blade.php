@@ -16,7 +16,7 @@
         {{-- Navbar --}}
         <div class="ui large pointing inverted top menu transition hidden" style="z-index: 2;">
             <a class="item" href="{!! route('index') !!}">首頁</a>
-            <a class="item" href="javascript:void(0)">題目</a>
+            <a class="item" href="{!! route('topic.index') !!}">題目</a>
             <a class="item" href="{!! route('about') !!}">關於</a>
             <div class="right menu">
                 <div class="item">
@@ -29,7 +29,7 @@
                 <i class="home icon"></i>
                 首頁
             </a>
-            <a class="item" href="javascript:void(0)">
+            <a class="item" href="{!! route('topic.index') !!}">
                 <i class="book icon"></i>
                 題目
             </a>

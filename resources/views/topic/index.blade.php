@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', '關於')
+@section('title', '題目')
 
 @section('css')
     <style>
@@ -70,7 +70,7 @@
 @endsection
 
 @section('content')
-    <div class="pusher frame curtain" id="header">
+    <div class="pusher">
         <div class="ui vertical masthead center aligned segment">
             <div class="ui container">
                 <div class="ui large secondary pointing menu">
@@ -78,35 +78,16 @@
                         <i class="sidebar icon"></i>
                     </a>
                     <a class="item" href="{!! route('index') !!}">首頁</a>
-                    <a class="item" href="{!! route('topic.index') !!}">題目</a>
-                    <a class="active item" href="{!! route('about') !!}">關於</a>
+                    <a class="active item" href="{!! route('topic.index') !!}">題目</a>
+                    <a class="item" href="{!! route('about') !!}">關於</a>
                     <div class="right item">
                         <a class="ui button" href="javascript:void(0)">登入/註冊</a>
                     </div>
                 </div>
                 <div class="ui text container">
-                    <h1 class="ui header">關於我們</h1>
-                    <p>CTF？黑客社？這些都是什麼東東啊？</p>
+                    <h1 class="ui header">CTF題目</h1>
+                    <p>CTF題目</p>
                 </div>
             </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>什麼是CTF？</h2>
-            </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>什麼是黑客社？</h2>
-            </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>服務及隱私權政策</h2>
-            </div>
-
-            <div class="ui vertical footer" id="footer">
-                <div class="ui container center aligned">
-                    <p>Copyright (c) 2016 HackerSir, All rights reserved.</p>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
