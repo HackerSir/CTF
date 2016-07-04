@@ -103,7 +103,7 @@
                     <a class="item" href="{!! route('topic.index') !!}">題目</a>
                     <a class="item" href="{!! route('about') !!}">關於</a>
                     <div class="right item">
-                        <a class="ui button inverted" href="javascript:void(0)">登入/註冊</a>
+                        <a class="ui button inverted" href="{!! route('login') !!}">登入/註冊</a>
                     </div>
                 </div>
             </div>

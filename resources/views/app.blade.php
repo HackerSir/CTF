@@ -12,7 +12,7 @@
         {!! Html::style('semantic/semantic.min.css') !!}
         @yield('css')
     </head>
-    <body class="pushable">
+    <body>
         {{-- Navbar --}}
         <div class="ui large pointing inverted top menu transition hidden" style="z-index: 2;">
             <a class="item" href="{!! route('index') !!}">首頁</a>
