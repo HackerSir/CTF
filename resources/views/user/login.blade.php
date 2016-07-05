@@ -18,7 +18,8 @@
 @endsection
 
 @section('content')
-    <div class="ui large aligned center aligned relaxed stackable grid" style="margin-top: 45vh;height: 90vh">
+    {{-- FIXME: 垂直位置 --}}
+    <div class="ui large aligned center aligned relaxed stackable grid" style="margin-top: calc(50vh - 130px)">
         <div class="six wide column">
             <h2 class="ui teal image header">
                 Login
