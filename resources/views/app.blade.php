@@ -38,9 +38,9 @@
             }
 
             @media only screen and (max-width: 700px) {
-                .ui.fixed.menu {
-                    display: none !important;
-                }
+                /*.ui.fixed.menu {*/
+                    /*display: none !important;*/
+                /*}*/
                 .secondary.pointing.menu .item,
                 .secondary.pointing.menu .menu {
                     display: none;
@@ -48,6 +48,12 @@
                 .secondary.pointing.menu .toc.item {
                     display: block;
                 }
+            }
+            #footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 10px;
             }
         </style>
     </head>
@@ -78,6 +84,10 @@
             <a class="item" href="{!! route('about') !!}">
                 <i class="info icon"></i>
                 關於
+            </a>
+            <a class="item" href="{!! route('login') !!}">
+                <i class="spy icon"></i>
+                登入/註冊
             </a>
         </div>
 
@@ -115,16 +125,13 @@
         @yield('js')
         <script>
             $(document).ready(function(){
-                // fix menu when passed
-                $('.masthead').visibility({
-                    once: false,
-                    onBottomPassed: function() {
-                        $('.fixed.menu').transition('fade in');
-                    },
-                    onBottomPassedReverse: function() {
-                        $('.fixed.menu').transition('fade out');
-                    }
+                $('.toc.item').click(function (){
+                    $('i.sidebar.icon').transition('fade out');
                 });
+                $('div.pusher').click(function (){
+                    $('i.sidebar.icon').transition('fade in');
+                });
+
 
                 $('.ui.sidebar').sidebar('attach events', '.toc.item');
             });

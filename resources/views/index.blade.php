@@ -2,7 +2,6 @@
 
 @section('css')
     <style>
-
         #header {
             min-height: 100vh !important;
             background-color: rgba(0, 0, 0, 0);
@@ -14,12 +13,7 @@
             min-height: 100vh !important;
             min-width: 100vh !important;
         }
-        #footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            margin-bottom: 10px;
-        }
+
         .background img, .background video{
             min-height:100vh;
             min-width:100%;
