@@ -4,9 +4,6 @@
 
 @section('css')
     <style>
-        body {
-            background-color: white !important;
-        }
         body > .grid {
             height: 100%;
         }
@@ -21,7 +18,7 @@
 @endsection
 
 @section('content')
-    <div class="ui middle aligned center aligned relaxed grid">
+    <div class="ui large aligned center aligned relaxed stackable grid" style="margin-top: 45vh;height: 90vh">
         <div class="six wide column">
             <h2 class="ui teal image header">
                 Login
@@ -44,13 +41,17 @@
                 </div>
 
                 <div class="ui error message"></div>
-
             </form>
         </div>
         <div class="ui vertical divider" style="height: 25% !important;">OR</div>
         <div class="six wide column">
             <h2>No Account?</h2>
             <p>You can just Sign up!</p>
+            <div class="ui horizontal divider">
+                Or
+            </div>
+            <h2>Forgot Password?</h2>
+            <p>Well, now you can change your password.</p>
         </div>
     </div>
 @endsection

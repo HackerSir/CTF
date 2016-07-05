@@ -70,43 +70,27 @@
 @endsection
 
 @section('content')
-    <div class="pusher frame curtain" id="header">
-        <div class="ui vertical masthead center aligned segment">
-            <div class="ui container">
-                <div class="ui large secondary pointing menu">
-                    <a class="toc item">
-                        <i class="sidebar icon"></i>
-                    </a>
-                    <a class="item" href="{!! route('index') !!}">首頁</a>
-                    <a class="item" href="{!! route('topic.index') !!}">題目</a>
-                    <a class="active item" href="{!! route('about') !!}">關於</a>
-                    <div class="right item">
-                        <a class="ui button" href="{!! route('login') !!}">登入/註冊</a>
-                    </div>
-                </div>
-                <div class="ui text container">
-                    <h1 class="ui header">關於我們</h1>
-                    <p>CTF？黑客社？這些都是什麼東東啊？</p>
-                </div>
-            </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>什麼是CTF？</h2>
-            </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>什麼是黑客社？</h2>
-            </div>
-
-            <div class="ui vertical stripe segment">
-                <h2>服務及隱私權政策</h2>
-            </div>
-
-            <div class="ui vertical footer" id="footer">
-                <div class="ui container center aligned">
-                    <p>Copyright (c) 2016 HackerSir, All rights reserved.</p>
-                </div>
-            </div>
-        </div>
+    <div class="ui text center aligned container">
+        <h1 class="ui header">關於我們</h1>
+        <p>CTF？黑客社？這些都是什麼東東啊？</p>
     </div>
+    <div class="ui vertical stripe segment">
+        <h2>什麼是CTF？</h2>
+    </div>
+
+    <div class="ui vertical stripe segment">
+        <h2>什麼是黑客社？</h2>
+    </div>
+
+    <div class="ui vertical stripe segment">
+        <h2>服務及隱私權政策</h2>
+    </div>
+@endsection
+
+@section('js')
+    <script>
+        $(document).ready(function() {
+            $('#about_item').addClass('active');
+        });
+    </script>
 @endsection
