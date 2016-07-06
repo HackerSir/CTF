@@ -11,7 +11,8 @@
         "zizaco/entrust": "5.2.x-dev",
         "arcanedev/log-viewer": "~3.0",
         "nesbot/carbon": "^1.21",
-        "barryvdh/laravel-ide-helper": "^2.2"
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "graham-campbell/throttle": "^5.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
