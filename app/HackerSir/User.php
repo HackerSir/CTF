@@ -3,9 +3,12 @@
 namespace Hackersir;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Zizaco\Entrust\Traits\EntrustUserTrait;
 
 class User extends Authenticatable
 {
+    use EntrustUserTrait;
+
     /** @var array $fillable 可大量指派的屬性 */
     protected $fillable = [
         'name',
