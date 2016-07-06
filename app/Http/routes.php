@@ -21,6 +21,19 @@ Route::get('/', [ 'as' => 'index', function () {
     return view('index');
 }]);
 
+
+//會員（無須完成信箱驗證）
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('resend', [
+        'as'   => 'auth.resend-confirm-mail',
+        'uses' => 'Auth\AuthController@resendConfirmMailPage'
+    ]);
+    Route::post('resend', [
+        'as'   => 'auth.resend-confirm-mail',
+        'uses' => 'Auth\AuthController@resendConfirmMail'
+    ]);
+});
+
 //會員系統
 Route::auth();
 //驗證信箱
