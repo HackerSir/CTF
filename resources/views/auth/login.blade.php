@@ -25,6 +25,7 @@
                                 {!! SemanticForm::password('password')->placeholder('Password')->required() !!}
                             </div>
                         </div>
+                        {!! SemanticForm::checkbox('remember')->label('Remember Me') !!}
                         {!! SemanticForm::submit('Login')->addClass('fluid large teal submit') !!}
                     </div>
 
