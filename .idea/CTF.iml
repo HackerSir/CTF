@@ -29,9 +29,9 @@
       <sourceFolder url="file://$MODULE_DIR$/vendor/mockery/mockery/tests" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/mockery/mockery/tests/Mockery/Test" isTestSource="true" packagePrefix="Mockery" />
       <sourceFolder url="file://$MODULE_DIR$/vendor/hamcrest/hamcrest-php/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app" isTestSource="false" packagePrefix="App" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/app/HackerSir" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/app/HackerSir" isTestSource="false" packagePrefix="Hackersir" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
