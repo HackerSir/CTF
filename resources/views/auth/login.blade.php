@@ -16,13 +16,13 @@
                         <div class="field{{ $errors->has('email') ? ' error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="user icon"></i>
-                                {!! SemanticForm::text('email')->placeholder('E-mail address') !!}
+                                {!! SemanticForm::email('email')->placeholder('E-mail address')->required() !!}
                             </div>
                         </div>
                         <div class="field{{ $errors->has('password') ? ' error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                {!! SemanticForm::password('password')->placeholder('Password') !!}
+                                {!! SemanticForm::password('password')->placeholder('Password')->required() !!}
                             </div>
                         </div>
                         {!! SemanticForm::submit('Login')->addClass('fluid large teal submit') !!}
