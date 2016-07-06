@@ -17,16 +17,6 @@ Route::get('about', [ 'as' => 'about', function () {
 
 Route::resource('topic', 'TopicController');
 
-Route::group(['prefix' => 'user'], function () {
-    Route::get('login', [ 'as' => 'login', function () {
-        return view('user.login');
-    }]);
-
-    Route::get('register', [ 'as' => 'register', function () {
-        return view('user.register');
-    }]);
-});
-
 Route::get('/', [ 'as' => 'index', function () {
     return view('index');
 }]);

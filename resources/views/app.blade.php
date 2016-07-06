@@ -68,7 +68,7 @@
             <a class="item" href="{!! route('about') !!}"  id="about_item">關於</a>
             <div class="right menu">
                 <div class="item">
-                    <a class="ui button" href="{!! route('login') !!}">登入/註冊</a>
+                    <a class="ui button" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
                 <i class="info icon"></i>
                 關於
             </a>
-            <a class="item" href="{!! route('login') !!}">
+            <a class="item" href="{!! action('Auth\AuthController@showLoginForm') !!}">
                 <i class="spy icon"></i>
                 登入/註冊
             </a>
@@ -103,7 +103,7 @@
                         {{--<a class="item" href="{!! route('topic.index') !!}">題目</a>--}}
                         {{--<a class="item" href="{!! route('about') !!}">關於</a>--}}
                         {{--<div class="right item">--}}
-                            {{--<a class="ui button inverted" href="{!! route('login') !!}">登入/註冊</a>--}}
+                            {{--<a class="ui button inverted" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>--}}
                         {{--</div>--}}
                     {{--</div>--}}
                 {{--</div>--}}
