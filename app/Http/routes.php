@@ -30,3 +30,11 @@ Route::group(['prefix' => 'user'], function () {
 Route::get('/', [ 'as' => 'index', function () {
     return view('index');
 }]);
+
+//會員系統
+Route::auth();
+//驗證信箱
+Route::get('confirm/{confirmCode}', [
+    'as'   => 'auth.confirm',
+    'uses' => 'Auth\AuthController@emailConfirm'
+]);
