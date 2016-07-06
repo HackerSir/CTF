@@ -31,7 +31,7 @@
 @section('title', '首頁')
 
 @section('content')
-    <div class="background frame" id="bg" style="margin-top: -50px">
+    <div class="background frame" id="bg">
         <video autoplay loop muted>
             <source src="//i.imgur.com/2r5Ldv5.mp4" type="video/mp4">
         </video>
