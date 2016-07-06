@@ -5,6 +5,27 @@ namespace Hackersir;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Zizaco\Entrust\Traits\EntrustUserTrait;
 
+/**
+ * 使用者
+ *
+ * @package Hackersir
+ *
+ * @property-read integer id
+ * @property string name
+ * @property string email
+ * @property string confirm_code
+ * @property \Carbon\Carbon|null confirm_at
+ * @property boolean isConfirmed
+ * @property \Carbon\Carbon|null register_at
+ * @property string register_ip
+ * @property \Carbon\Carbon|null last_login_at
+ * @property string last_login_ip
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Role[]|null roles
+ *
+ * @property \Carbon\Carbon|null created_at
+ * @property \Carbon\Carbon|null updated_at
+ */
 class User extends Authenticatable
 {
     use EntrustUserTrait;
