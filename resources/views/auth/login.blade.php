@@ -22,7 +22,7 @@
                         <div class="field{{ $errors->has('password') ? ' error' : '' }}">
                             <div class="ui left icon input">
                                 <i class="lock icon"></i>
-                                {!! SemanticForm::password('password')->placeholder('password') !!}
+                                {!! SemanticForm::password('password')->placeholder('Password') !!}
                             </div>
                         </div>
                         {!! SemanticForm::submit('Login')->addClass('fluid large teal submit') !!}
