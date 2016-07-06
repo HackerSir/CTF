@@ -70,6 +70,12 @@
             <div class="right menu">
                 <div class="item">
                     @if(Auth::check())
+                        @if(!Auth::user()->isConfirmed)
+                            <a class="ui button red" href="{!! route('auth.resend-confirm-mail') !!}">
+                                <i class="mail icon"></i> 信箱未驗證
+                            </a>
+                            &nbsp;
+                        @endif
                         <a class="ui button" href="{!! action('Auth\AuthController@logout') !!}">登出</a>
                     @else
                         <a class="ui button" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>
@@ -91,6 +97,11 @@
                 關於
             </a>
             @if(Auth::check())
+                @if(!Auth::user()->isConfirmed)
+                    <a class="item" href="{!! route('auth.resend-confirm-mail') !!}">
+                        <i class="mail icon red"></i> 信箱未驗證
+                    </a>
+                @endif
                 <a class="item" href="{!! action('Auth\AuthController@logout') !!}">
                     <i class="spy icon"></i>
                     登出
