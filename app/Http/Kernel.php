@@ -34,6 +34,11 @@ class Kernel extends HttpKernel
         'api' => [
             'throttle:60,1',
         ],
+
+        'email' => [
+            \App\Http\Middleware\Authenticate::class,
+            \App\Http\Middleware\EmailConfirm::class,
+        ],
     ];
 
     /**
