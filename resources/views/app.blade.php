@@ -59,6 +59,7 @@
     </head>
     <body style="margin-top: 50px; background-color: rgba(0,0,0,0) !important;">
         {{-- Navbar --}}
+        {{-- TODO: 改由LaravelMenu或其他套件自動生成 --}}
         <div class="ui large center aligned fixed secondary pointing menu transition" style="z-index: 3;" id="navbar">
             <a class="toc item inverted">
                 <i class="sidebar icon"></i>
@@ -68,7 +69,11 @@
             <a class="item" href="{!! route('about') !!}"  id="about_item">關於</a>
             <div class="right menu">
                 <div class="item">
-                    <a class="ui button" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>
+                    @if(Auth::check())
+                        <a class="ui button" href="{!! action('Auth\AuthController@logout') !!}">登出</a>
+                    @else
+                        <a class="ui button" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>
+                    @endif
                 </div>
             </div>
         </div>
@@ -85,10 +90,17 @@
                 <i class="info icon"></i>
                 關於
             </a>
-            <a class="item" href="{!! action('Auth\AuthController@showLoginForm') !!}">
-                <i class="spy icon"></i>
-                登入/註冊
-            </a>
+            @if(Auth::check())
+                <a class="item" href="{!! action('Auth\AuthController@logout') !!}">
+                    <i class="spy icon"></i>
+                    登出
+                </a>
+            @else
+                <a class="item" href="{!! action('Auth\AuthController@showLoginForm') !!}">
+                    <i class="spy icon"></i>
+                    登入/註冊
+                </a>
+            @endif
         </div>
 
         {{-- Content --}}
