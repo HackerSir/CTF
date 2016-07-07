@@ -2,7 +2,7 @@
     @if($item->hasChildren())
         {{-- 巢狀次級選單 --}}
         {{-- FIXME: @lm-attrs($item) 無法追加class --}}
-        <a@lm-attrs($item) class="ui dropdown item" @lm-endattrs href="{!! $item->url() !!}">
+        <a @lm-attrs($item) class="ui dropdown item" @lm-endattrs href="{!! $item->url() !!}">
             {!! $item->title !!}
             <i class="dropdown icon"></i>
             <div class="menu">
@@ -14,7 +14,7 @@
         @if($item->link)
             {{-- 超連結 --}}
             {{-- FIXME: active --}}
-            <a@lm-attrs($item->link) class="item" @lm-endattrs href="{!! $item->url() !!}">{!! $item->title !!}</a>
+            <a @lm-attrs($item->link) class="item" @lm-endattrs href="{!! $item->url() !!}">{!! $item->title !!}</a>
         @else
             {{-- 文字 --}}
             {!! $item->title !!}

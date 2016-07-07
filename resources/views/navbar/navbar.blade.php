@@ -1,11 +1,13 @@
 {{-- TODO: 改由LaravelMenu或其他套件自動生成 --}}
 <div class="ui large center aligned secondary pointing menu transition" style="z-index: 3;" id="navbar">
-    <a class="toc item inverted">
-        <i class="sidebar icon"></i>
-    </a>
-    @include('navbar.item', ['items' => Menu::get('left')->roots()])
-    <div class="right menu">
-        @include('navbar.item', ['items' => Menu::get('right')->roots()])
+    <div class="ui container">
+        <a class="toc item inverted">
+            <i class="sidebar icon"></i>
+        </a>
+        @include('navbar.item', ['items' => Menu::get('left')->roots()])
+        <div class="right menu">
+            @include('navbar.item', ['items' => Menu::get('right')->roots()])
+        </div>
     </div>
 </div>
 <div class="ui sidebar inverted vertical labeled icon menu" style="z-index: 2;">
