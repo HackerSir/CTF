@@ -59,8 +59,7 @@
     </head>
     <body style="margin-top: 50px; background-color: rgba(0,0,0,0) !important;">
         {{-- Navbar --}}
-        @include('navbar')
-
+        @include('navbar.navbar')
         {{-- Content --}}
         <div class="pusher" style="background-color: rgba(0, 0, 0, 0) !important;">
             @yield('content')
@@ -89,6 +88,10 @@
 
 
                 $('.ui.sidebar').sidebar('attach events', '.toc.item');
+//                $('.ui.dropdown').dropdown();
+                $('.ui.dropdown').each(function (){
+                    $(this).dropdown();
+                });
             });
         </script>
     </body>

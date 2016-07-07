@@ -3,26 +3,13 @@
     <a class="toc item inverted">
         <i class="sidebar icon"></i>
     </a>
-    <a class="item" href="{!! route('index') !!}" id="index_item">首頁</a>
-    <a class="item" href="{!! route('topic.index') !!}" id="topic_item">題目</a>
-    <a class="item" href="{!! route('about') !!}" id="about_item">關於</a>
+    @include('navbar.item', ['items' => Menu::get('left')->roots()])
     <div class="right menu">
-        <div class="item">
-            @if(Auth::check())
-                @if(!Auth::user()->isConfirmed)
-                    <a class="ui button red" href="{!! route('auth.resend-confirm-mail') !!}">
-                        <i class="mail icon"></i> 信箱未驗證
-                    </a>
-                    &nbsp;
-                @endif
-                <a class="ui button" href="{!! action('Auth\AuthController@logout') !!}">登出</a>
-            @else
-                <a class="ui button" href="{!! action('Auth\AuthController@showLoginForm') !!}">登入/註冊</a>
-            @endif
-        </div>
+        @include('navbar.item', ['items' => Menu::get('right')->roots()])
     </div>
 </div>
 <div class="ui sidebar inverted vertical labeled icon menu" style="z-index: 2;">
+    {{-- FIXME: 改由LaravelMenu生成 --}}
     <a class="item" href="{!! route('index') !!}">
         <i class="home icon"></i>
         首頁
