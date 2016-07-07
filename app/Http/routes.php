@@ -11,16 +11,45 @@
 |
 */
 
-Route::get('about', [ 'as' => 'about', function () {
+Route::get('about', ['as' => 'about', function () {
     return view('about');
 }]);
 
 Route::resource('topic', 'TopicController');
 
-Route::get('/', [ 'as' => 'index', function () {
+Route::get('/', ['as' => 'index', function () {
     return view('index');
 }]);
 
+//會員（須完成信箱驗證）
+Route::group(['middleware' => 'email'], function () {
+    //會員資料
+    Route::group(['prefix' => 'profile'], function () {
+        //查看會員資料
+        Route::get('/', [
+            'as'   => 'profile',
+            'uses' => 'ProfileController@getProfile'
+        ]);
+        //編輯會員資料
+        Route::get('edit', [
+            'as'   => 'profile.edit',
+            'uses' => 'ProfileController@getEditProfile'
+        ]);
+        Route::put('update', [
+            'as'   => 'profile.update',
+            'uses' => 'ProfileController@updateProfile'
+        ]);
+        //修改密碼
+        Route::get('change-password', [
+            'as'   => 'profile.change-password',
+            'uses' => 'ProfileController@getChangePassword'
+        ]);
+        Route::put('update-password', [
+            'as'   => 'profile.update-password',
+            'uses' => 'ProfileController@updatePassword'
+        ]);
+    });
+});
 
 //會員（無須完成信箱驗證）
 Route::group(['middleware' => 'auth'], function () {
