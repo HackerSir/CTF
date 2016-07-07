@@ -165,6 +165,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         GrahamCampbell\Throttle\ThrottleServiceProvider::class,
         Laravolt\SemanticForm\ServiceProvider::class,
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
 
 
     ],
@@ -221,6 +222,7 @@ return [
         'Entrust'      => Zizaco\Entrust\EntrustFacade::class,
         'Throttle'     => GrahamCampbell\Throttle\Facades\Throttle::class,
         'SemanticForm' => Laravolt\SemanticForm\Facade::class,
+        'Gravatar'     => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
     ],
 
 ];
