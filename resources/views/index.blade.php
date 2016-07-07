@@ -25,6 +25,11 @@
         .white {
             color: #ffffff;
         }
+        #footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
 @endsection
 
@@ -54,7 +59,7 @@
     <script>
         $(document).ready(function() {
             $('#navbar').addClass('inverted fixed');
-            $('body').removeAttr('style');
+//            $('body').removeAttr('style');
             $('#index_item').addClass('active');
             // create sidebar and attach to menu open
         });

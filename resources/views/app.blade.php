@@ -10,7 +10,6 @@
 
         {{-- CSS --}}
         {!! Html::style('semantic/semantic.min.css') !!}
-        @yield('css')
         <style>
             .masthead .logo.item img {
                 margin-right: 1em;
@@ -49,13 +48,9 @@
                     display: block;
                 }
             }
-            #footer {
-                position: fixed;
-                bottom: 0;
-                width: 100%;
-                margin-bottom: 10px;
-            }
+
         </style>
+        @yield('css')
     </head>
     <body style="background-color: rgba(0,0,0,0) !important;">
         {{-- Navbar --}}
