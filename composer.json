@@ -15,7 +15,8 @@
         "graham-campbell/throttle": "^5.2",
         "predis/predis": "^1.1",
         "laravolt/semantic-form": "^1.3",
-        "thomaswelton/laravel-gravatar": "^1.1"
+        "thomaswelton/laravel-gravatar": "^1.1",
+        "lavary/laravel-menu": "^1.6"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
