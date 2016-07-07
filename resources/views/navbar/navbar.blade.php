@@ -1,5 +1,5 @@
 {{-- TODO: 改由LaravelMenu或其他套件自動生成 --}}
-<div class="ui large center aligned fixed secondary pointing menu transition" style="z-index: 3;" id="navbar">
+<div class="ui large center aligned secondary pointing menu transition" style="z-index: 3;" id="navbar">
     <a class="toc item inverted">
         <i class="sidebar icon"></i>
     </a>

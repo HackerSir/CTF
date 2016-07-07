@@ -53,7 +53,7 @@
 @section('js')
     <script>
         $(document).ready(function() {
-            $('#navbar').addClass('inverted');
+            $('#navbar').addClass('inverted fixed');
             $('body').removeAttr('style');
             $('#index_item').addClass('active');
             // create sidebar and attach to menu open

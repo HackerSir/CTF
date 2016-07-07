@@ -57,7 +57,7 @@
             }
         </style>
     </head>
-    <body style="margin-top: 50px; background-color: rgba(0,0,0,0) !important;">
+    <body style="background-color: rgba(0,0,0,0) !important;">
         {{-- Navbar --}}
         @include('navbar.navbar')
         {{-- Content --}}
