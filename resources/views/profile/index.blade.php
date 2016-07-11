@@ -63,7 +63,7 @@
                         </tr>
                     </table>
 
-                    <div class="text-center">
+                    <div>
                         <a href="{{ route('profile.edit') }}" class="ui button"><i class="icon edit"></i> 編輯資料</a>
                         <a href="{{ route('profile.change-password') }}" class="ui button"><i class="icon lock"></i> 修改密碼</a>
                     </div>
