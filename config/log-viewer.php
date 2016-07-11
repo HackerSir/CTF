@@ -5,13 +5,13 @@ return [
      |  Log files storage path
      | ------------------------------------------------------------------------------------------------
      */
-    'storage-path'  => storage_path('logs'),
+    'storage-path' => storage_path('logs'),
 
     /* ------------------------------------------------------------------------------------------------
      |  Log files pattern
      | ------------------------------------------------------------------------------------------------
      */
-    'pattern'       => [
+    'pattern'      => [
         'prefix'    => \Arcanedev\LogViewer\Contracts\FilesystemInterface::PATTERN_PREFIX,
         'date'      => \Arcanedev\LogViewer\Contracts\FilesystemInterface::PATTERN_DATE,
         'extension' => \Arcanedev\LogViewer\Contracts\FilesystemInterface::PATTERN_EXTENSION,
@@ -23,19 +23,19 @@ return [
      |  Supported locales :
      |    'auto', 'ar', 'de', 'en', 'es', 'fa', 'fr', 'hy', 'it', 'nl', 'pl', 'pt-BR', 'ro', 'ru', 'sv', 'tr', 'zh-TW', 'zh'
      */
-    'locale'        => 'auto',
+    'locale'       => 'auto',
 
     /* ------------------------------------------------------------------------------------------------
      |  Route settings
      | ------------------------------------------------------------------------------------------------
      */
-    'route'         => [
-        'enabled'    => true,
+    'route'        => [
+        'enabled' => true,
 
         'attributes' => [
-            'prefix'     => 'log-viewer',
+            'prefix' => 'log-viewer',
 
-            'middleware' => null,
+            'middleware' => ['web', 'permission:log-viewer.access'],
         ],
     ],
 
@@ -44,20 +44,20 @@ return [
      | ------------------------------------------------------------------------------------------------
      |  This defines how many log entries are displayed per page.
      */
-    'per-page'      => 30,
+    'per-page'     => 30,
 
     /* ------------------------------------------------------------------------------------------------
      |  LogViewer's Facade
      | ------------------------------------------------------------------------------------------------
      */
-    'facade'        => 'LogViewer',
+    'facade'       => 'LogViewer',
 
     /* ------------------------------------------------------------------------------------------------
      |  Download settings
      | ------------------------------------------------------------------------------------------------
      */
-    'download'      => [
-        'prefix'    => 'laravel-',
+    'download'     => [
+        'prefix' => 'laravel-',
 
         'extension' => 'log',
     ],
@@ -66,8 +66,8 @@ return [
      |  Menu settings
      | ------------------------------------------------------------------------------------------------
      */
-    'menu'  => [
-        'filter-route'  => 'log-viewer::logs.filter',
+    'menu'         => [
+        'filter-route' => 'log-viewer::logs.filter',
 
         'icons-enabled' => true,
     ],
@@ -76,7 +76,7 @@ return [
      |  Icons
      | ------------------------------------------------------------------------------------------------
      */
-    'icons' =>  [
+    'icons'        => [
         /**
          * Font awesome >= 4.3
          * http://fontawesome.io/icons/
@@ -96,8 +96,8 @@ return [
      |  Colors
      | ------------------------------------------------------------------------------------------------
      */
-    'colors' =>  [
-        'levels'    => [
+    'colors'       => [
+        'levels' => [
             'empty'     => '#D1D1D1',
             'all'       => '#8A8A8A',
             'emergency' => '#B71C1C',
