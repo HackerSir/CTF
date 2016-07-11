@@ -23,6 +23,14 @@ Route::get('/', ['as' => 'index', function () {
 
 //會員（須完成信箱驗證）
 Route::group(['middleware' => 'email'], function () {
+    //會員管理
+    //權限：user.manage、user.view
+    Route::resource('user', 'UserController', [
+        'except' => [
+            'create',
+            'store'
+        ]
+    ]);
     //會員資料
     Route::group(['prefix' => 'profile'], function () {
         //查看會員資料
