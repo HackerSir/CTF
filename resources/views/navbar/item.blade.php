@@ -14,7 +14,7 @@
         {{-- 一般項目 --}}
         @if($item->link)
             {{-- 超連結 --}}
-            <a @lm-attrs($item->link) class="item" @lm-endattrs href="{!! $item->url() !!}">{!! $item->title !!}</a>
+            <a @lm-attrs($item) class="item" @lm-endattrs href="{!! $item->url() !!}">{!! $item->title !!}</a>
         @else
             {{-- 文字 --}}
             {!! $item->title !!}
