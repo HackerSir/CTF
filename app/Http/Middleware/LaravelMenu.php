@@ -48,7 +48,7 @@ class LaravelMenu
                     $confirmAlert->attr('class', 'red');
                 }
                 if (Entrust::can(['user.manage', 'user.view'])) {
-                    $menu->add('會員清單', ['route' => 'user.index']);
+                    $menu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                 }
                 $menu->add('個人資料', ['route' => 'profile'])->active('profile/*');
                 $menu->add('登出', ['action' => 'Auth\AuthController@logout']);
