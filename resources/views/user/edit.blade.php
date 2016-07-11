@@ -41,7 +41,7 @@
                                     @if($user->id == Auth::user()->id && $role->name == 'admin')
                                         {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name), ['disabled']) !!}
                                         <label>{{ $role->display_name }} </label>
-                                        <span class="label label-primary">禁止解除自己的管理員職務</span>
+                                        <span class="ui small label red">禁止解除自己的管理員職務</span>
                                     @else
                                         {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name)) !!}
                                         <label>{{ $role->display_name }} </label>
