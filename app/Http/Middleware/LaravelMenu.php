@@ -24,19 +24,6 @@ class LaravelMenu
             $menu->add('首頁', ['route' => 'index']);
             $menu->add('題目', ['route' => 'topic.index'])->active('topic/*');
             $menu->add('關於', ['route' => 'about']);
-            //FIXME 次級選單（以下僅供測試）
-            $subMenu = $menu->add('下拉選單', 'javascript:void(0)')->active('x')->divide();
-            $subMenu->add('sub首頁', ['route' => 'index']);
-            $subMenu->add('sub題目', ['route' => 'topic.index'])->active('topic/*')->divide();
-            $subMenu->add('sub關於', ['route' => 'about']);
-            $subSubMenu = $subMenu->add('下拉選單', 'javascript:void(0)');
-            $subSubMenu->add('sub首頁', ['route' => 'index'])->divide();
-            $subSubMenu->add('sub題目', ['route' => 'topic.index'])->active('topic/*');
-            $subSubMenu->add('sub關於', ['route' => 'about']);
-            $subMenu2 = $menu->add('下拉選單2', 'javascript:void(0)');
-            $subMenu2->add('sub首頁2', ['route' => 'index']);
-            $subMenu2->add('sub題目2', ['route' => 'topic.index'])->active('topic/*');
-            $subMenu2->add('sub關於2', ['route' => 'about']);
         });
         //右側
         Menu::make('right', function ($menu) {
@@ -53,10 +40,6 @@ class LaravelMenu
                 if (Entrust::can(['user.manage', 'user.view'])) {
                     $menu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                 }
-                //FIXME: 整合至會員選單
-                $menu->add('個人資料', ['route' => 'profile'])->active('profile/*');
-                $menu->add('登出', ['action' => 'Auth\AuthController@logout']);
-
                 $userMenu = $menu->add(Auth::user()->name, 'javascript:void(0)');
                 $userMenu->add('個人資料', ['route' => 'profile'])->active('profile/*');
                 $userMenu->add('登出', ['action' => 'Auth\AuthController@logout']);

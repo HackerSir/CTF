@@ -1,4 +1,4 @@
-{{-- TODO: 改由LaravelMenu或其他套件自動生成 --}}
+{{-- 由LaravelMenu或自動生成 --}}
 <div class="ui large center aligned secondary pointing menu transition" style="z-index: 3;" id="navbar">
     <div class="ui container">
         <a class="toc item inverted">
