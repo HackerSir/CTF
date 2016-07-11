@@ -28,7 +28,7 @@
                             <img src="{{ Gravatar::src($user->email, 200) }}" class="ui centered medium circular image" id="gravatar" /></a><br />
                     </div>
 
-                    <table class="ui selectable table">
+                    <table class="ui selectable stackable table">
                         <tr>
                             <td class="four wide right aligned">名稱：</td>
                             <td>{{ $user->name }}</td>
@@ -45,9 +45,6 @@
                                 @endforeach
                             </td>
                         </tr>
-                    </table>
-
-                    <table class="ui selectable table">
                         <tr>
                             <td class="four wide right aligned">註冊時間：</td>
                             <td>{{ $user->register_at }}</td>
