@@ -30,12 +30,14 @@ class LaravelMenu
             //會員
             if (Auth::check()) {
                 if (!Auth::user()->isConfirmed) {
-                    $confirmAlert = $menu->add(
+                    $menu->add(
                         '<i class="ui icon alarm red"></i> 尚未完成信箱驗證',
-                        ['route' => 'auth.resend-confirm-mail']
+                        [
+                            'route' => 'auth.resend-confirm-mail',
+                            //FIXME: menu的a.item無法透過顏色class直接設定顏色
+                            'class' => 'red'
+                        ]
                     );
-                    //FIXME: 無法追記加class
-                    $confirmAlert->attr('class', 'red');
                 }
                 if (Entrust::can(['user.manage', 'user.view'])) {
                     $menu->add('會員清單', ['route' => 'user.index'])->active('user/*');
