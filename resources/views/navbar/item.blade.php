@@ -1,7 +1,6 @@
 @foreach($items as $item)
     @if($item->hasChildren())
         {{-- 巢狀次級選單 --}}
-        {{-- FIXME: @lm-attrs($item) 無法追加class --}}
         {{-- FIXME: submenu無法隨著子元素的active而active --}}
         <div @lm-attrs($item) class="ui dropdown item" @lm-endattrs href="{!! $item->url() !!}">
             {!! $item->title !!}
