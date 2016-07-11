@@ -2,26 +2,23 @@
 
 @section('title', '會員清單')
 
-@section('css')
-    <style type="text/css">
-        {{-- 使表格文字垂直置中 --}}
-        .table > tbody > tr > td {
-            vertical-align: middle;
-        }
-    </style>
-@endsection
-
 @section('content')
-    <div class="container">
-        <div class="page-header">
-            <h1>會員清單</h1>
+    <div class="ui container">
+        <h2 class="ui teal header center aligned">
+            會員清單
+        </h2>
+        {{-- TODO: 麵包屑抽出來（建議）--}}
+        <div class="ui grey message">
+            <div class="ui breadcrumb">
+                <div class="section">現在位置：</div>
+                <div class="active section">會員清單</div>
+            </div>
         </div>
-        <table class="table table-bordered table-hover table-striped">
+        <table class="ui selectable celled padded table">
             <thead>
             <tr>
-                <th>名稱</th>
+                <th>使用者</th>
                 <th>信箱</th>
-                <th>角色</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -29,26 +26,32 @@
             @foreach($users as $user)
                 <tr>
                     <td>
-                        {{ Html::image(Gravatar::src($user->email), null, ['class'=>'img-circle', 'height'=>'40px', 'width'=>'40px']) }}
-                        {{ link_to_route('user.show', $user->name, $user) }}
+                        <h4 class="ui image header">
+                            {{ Html::image(Gravatar::src($user->email, 80), null, ['class'=>'ui tiny avatar image']) }}
+                            <div class="content">
+                                {{ link_to_route('user.show', $user->name, $user, ['class' => 'ui large blue header']) }}
+                                <div class="sub header">
+                                    @foreach($user->roles as $role)
+                                        <span class="ui tag label">{{ $role->display_name }}</span>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </h4>
                     </td>
                     <td>
                         {{ $user->email }}
                         @if (!$user->isConfirmed)
-                            <i class="fa fa-exclamation-triangle text-danger" title="尚未完成信箱驗證"></i>
+                            <i class="warning sign icon red" title="尚未完成信箱驗證"></i>
                         @endif
                     </td>
                     <td>
-                        @foreach($user->roles as $role)
-                            {{ $role->display_name }}<br/>
-                        @endforeach
-                    </td>
-                    <td>
-                        <a href="{{ route('user.show', $user) }}" class="btn btn-xs btn-default" title="會員資料"><i class="fa fa-search fa-fw"></i></a>
-                        <a href="{{ route('user.edit', $user) }}" class="btn btn-xs btn-primary" title="編輯會員"><i class="fa fa-pencil fa-fw"></i></a>
+                        <a href="{{ route('user.show', $user) }}" class="ui icon button" title="會員資料"><i
+                                class="user icon"></i></a>
+                        <a href="{{ route('user.edit', $user) }}" class="ui icon button blue" title="編輯會員"><i
+                                class="edit icon"></i></a>
                         {!! Form::open(['route' => ['user.destroy', $user], 'style' => 'display: inline', 'method' => 'DELETE', 'onSubmit' => "return confirm('確定要刪除此會員嗎？');"]) !!}
-                        <button type="submit" class="btn btn-xs btn-danger" title="刪除會員">
-                            <i class="fa fa-trash fa-fw"></i>
+                        <button type="submit" class="ui icon button red" title="刪除會員">
+                            <i class="trash icon"></i>
                         </button>
                         {!! Form::close() !!}
                     </td>
@@ -56,7 +59,7 @@
             @endforeach
             </tbody>
         </table>
-        <div class="text-center">
+        <div>
             {!! $users->appends(Request::except(['page']))->render() !!}
         </div>
     </div>
