@@ -3,64 +3,69 @@
 @section('title', "{$user->name} - 編輯會員資料")
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                {!! Form::model($user, ['route' => ['user.update', $user], 'method' => 'PUT', 'class' => 'form-horizontal']) !!}
-                <div class="panel panel-default">
-                    <div class="panel-heading">{{ $user->name }} - 編輯會員資料</div>
-                    {{-- Panel body --}}
-                    <div class="panel-body">
-                        <div class="row">
-                            <div class="text-center">
-                                {{-- Gravatar大頭貼 --}}
-                                <img src="{{ Gravatar::src($user->email, 200) }}" class="img-circle"/><br/>
-                            </div>
+    <div class="ui container">
+        {{-- TODO: 麵包屑抽出來（建議）--}}
+        <div class="ui grey message">
+            <div class="ui breadcrumb">
+                <div class="section">現在位置：</div>
+                <a class="section">{{ link_to_route('user.index', '會員清單') }}</a>
+                <i class="right arrow icon divider"></i>
+                <div class="active section">會員資料</div>
+                <i class="right arrow icon divider"></i>
+                <div class="active section">{{ link_to_route('user.show', $user->name, $user) }}</div>
+                <i class="right arrow icon divider"></i>
+                <div class="active section">編輯會員資料</div>
+            </div>
+        </div>
+        <div class="ui top attached segment">
+            <div class="ui top attached label">{{ $user->name }} - 編輯會員資料</div>
+            <div class="ui large aligned center aligned relaxed stackable grid">
+                <div class="ten wide column">
+                    <h2 class="ui teal image header">
+                        {{ $user->name }} - 編輯會員資料
+                    </h2>
+                    {!! SemanticForm::open()->put()->action(route('user.update', $user))->addClass('large') !!}
+                    {!! SemanticForm::bind($user) !!}
+                    <div class="ui stacked segment">
+                        {!! SemanticForm::text('email')->label('Email')->placeholder('Email')->disable() !!}
+                        <div class="ui tiny negative message">
+                            <ul class="list">
+                                <li>信箱作為帳號使用，故無法修改</li>
+                            </ul>
                         </div>
-                        <hr/>
-                        <div class="row">
-                            <div class="form-group has-feedback{{ ($errors->has('name'))?' has-error':'' }}">
-                                <label class="control-label col-md-2" for="name">名稱</label>
-                                <div class="col-md-9">
-                                    {!! Form::text('name', null, ['placeholder' => '請輸入名稱', 'class' => 'form-control', 'required']) !!}
-                                    @if($errors->has('name'))<span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
-                                    <span class="label label-danger">{{ $errors->first('name') }}</span><br />@endif
+                        {!! SemanticForm::text('name')->label('Name')->placeholder('Name / Nickname')->required() !!}
+                        <div class="field{{ ($errors->has('role'))?' error':'' }}">
+                            <label>角色</label>
+                            @foreach($roles as $role)
+                                <div class="ui checkbox">
+                                    @if($user->id == Auth::user()->id && $role->name == 'admin')
+                                        {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name), ['disabled']) !!}
+                                        <label>{{ $role->display_name }} </label>
+                                        <span class="label label-primary">禁止解除自己的管理員職務</span>
+                                    @else
+                                        {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name)) !!}
+                                        <label>{{ $role->display_name }} </label>
+                                    @endif
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2" for="name">Email</label>
-                                <div class="col-md-9">
-                                    <span class="form-control" readonly>{{ $user->email }}</span>
-                                    <span class="label label-primary">信箱作為帳號使用，故無法修改</span>
-                                </div>
-                            </div>
-                            <div class="form-group has-feedback{{ ($errors->has('role'))?' has-error':'' }}">
-                                <label class="control-label col-md-2" for="role">角色</label>
-                                <div class="col-md-9">
-                                    @foreach($roles as $role)
-                                        <div class="checkbox">
-                                            <label>
-                                                @if($user->id == Auth::user()->id && $role->name == 'admin')
-                                                    {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name), ['disabled']) !!} {{ $role->display_name }}
-                                                    <span class="label label-primary">禁止解除自己的管理員職務</span>
-                                                @else
-                                                    {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name)) !!} {{ $role->display_name }}
-                                                @endif
-                                            </label>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
+                                <br/>
+                            @endforeach
                         </div>
+                        <a href="{{ route('user.show', $user) }}" class="ui button"><i class="icon arrow left"></i>
+                            返回會員資料</a>
+                        {!! SemanticForm::submit('Update profile')->addClass('teal submit') !!}
                     </div>
+
+                    @if($errors->count())
+                        <div class="ui error message" style="display: block">
+                            <ul class="list">
+                                @foreach($errors->all('<li>:message</li>') as $error)
+                                    {!! $error !!}
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    {!! SemanticForm::close() !!}
                 </div>
-                <div class="text-center">
-                    <a href="{{ route('user.show', $user) }}" class="btn btn-default"><i class="fa fa-arrow-left"></i> 返回會員資料</a>
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fa fa-check"></i> 確認
-                    </button>
-                </div>
-                {!! Form::close() !!}
             </div>
         </div>
     </div>
