@@ -2,13 +2,23 @@
 
 @section('title', "{$user->name} - 會員資料")
 
+@section('css')
+    <style>
+        /* TODO: 看要置左還是置中，然後看要不要抽出來做*/
+        @media only screen and (max-width: 767px) {
+            td {
+                text-align: center !important;
+            }
+        }
+    </style>
+@endsection
+
 @section('content')
-    <div class="ui container center aligned">
-        <h2 class="ui teal image header">
+    <div class="ui container">
+        <h2 class="ui teal header center aligned">
             {{ $user->name }} - 會員資料
         </h2>
         {{-- TODO: 麵包屑抽出來（建議）--}}
-        {{-- FIXME: 靠左對齊--}}
         <div class="ui grey message">
             <div class="ui breadcrumb">
                 <div class="section">現在位置：</div>
@@ -19,12 +29,11 @@
                 <div class="active section">{{ $user->name }}</div>
             </div>
         </div>
-        <div>
+        <div class="ui header center aligned">
             {{-- Gravatar大頭貼 --}}
-            {{-- FIXME: 連結太寬 --}}
-            <a href="https://zh-tw.gravatar.com/" target="_blank" title="透過Gravatar更換照片">
-                <img src="{{ Gravatar::src($user->email, 200) }}" class="ui centered medium circular image"
-                     id="gravatar"/></a><br/>
+            <a href="https://zh-tw.gravatar.com/" target="_blank" title="透過Gravatar更換照片"
+               class="ui medium circular image">
+                <img src="{{ Gravatar::src($user->email, 200) }}" class="ui image" id="gravatar"/></a><br/>
         </div>
 
         <table class="ui selectable stackable table">
@@ -67,11 +76,13 @@
             </tr>
         </table>
 
-        <div>
-            <a href="{{ route('user.index') }}" class="ui icon button"><i class="arrow left icon"></i> 會員清單</a>
-            <a href="{{ route('user.edit', $user) }}" class="ui icon button"><i class="edit icon"></i> 編輯資料</a>
+        {{-- TODO: text-align: center要獨立成一個text-center --}}
+        <div style="text-align: center">
+            <a href="{{ route('user.index') }}" class="ui blue basic icon button"><i class="arrow left icon"></i>
+                會員清單</a>
+            <a href="{{ route('user.edit', $user) }}" class="ui brown basic icon button"><i class="edit icon"></i> 編輯資料</a>
             {!! Form::open(['route' => ['user.destroy', $user], 'style' => 'display: inline', 'method' => 'DELETE', 'onSubmit' => "return confirm('確定要刪除此會員嗎？');"]) !!}
-            <button type="submit" class="ui icon button red">
+            <button type="submit" class="ui icon button red basic">
                 <i class="trash icon"></i> 刪除會員
             </button>
             {!! Form::close() !!}
