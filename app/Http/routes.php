@@ -11,15 +11,21 @@
 |
 */
 
-Route::get('about', ['as' => 'about', function () {
-    return view('about');
-}]);
+Route::get('about', [
+    'as' => 'about',
+    function () {
+        return view('about');
+    }
+]);
 
 Route::resource('topic', 'TopicController');
 
-Route::get('/', ['as' => 'index', function () {
-    return view('index');
-}]);
+Route::get('/', [
+    'as' => 'index',
+    function () {
+        return view('index');
+    }
+]);
 
 //會員（須完成信箱驗證）
 Route::group(['middleware' => 'email'], function () {
@@ -31,6 +37,23 @@ Route::group(['middleware' => 'email'], function () {
             'store'
         ]
     ]);
+    //權限清單
+    //權限：permission.index.access
+    Route::get('permission', [
+        'as'         => 'permission.index',
+        'uses'       => 'PermissionController@index',
+        'middleware' => 'permission:permission.index.access'
+    ]);
+    //角色管理
+    //權限：role.manage
+    Route::group(['middleware' => 'permission:role.manage'], function () {
+        Route::resource('role', 'RoleController', [
+            'except' => [
+                'index',
+                'show'
+            ]
+        ]);
+    });
     //會員資料
     Route::group(['prefix' => 'profile'], function () {
         //查看會員資料
