@@ -78,11 +78,11 @@
 
         {{-- TODO: text-align: center要獨立成一個text-center --}}
         <div style="text-align: center">
-            <a href="{{ route('user.index') }}" class="ui blue basic icon button"><i class="arrow left icon"></i>
+            <a href="{{ route('user.index') }}" class="ui blue inverted icon button"><i class="arrow left icon"></i>
                 會員清單</a>
-            <a href="{{ route('user.edit', $user) }}" class="ui brown basic icon button"><i class="edit icon"></i> 編輯資料</a>
+            <a href="{{ route('user.edit', $user) }}" class="ui brown inverted icon button"><i class="edit icon"></i> 編輯資料</a>
             {!! Form::open(['route' => ['user.destroy', $user], 'style' => 'display: inline', 'method' => 'DELETE', 'onSubmit' => "return confirm('確定要刪除此會員嗎？');"]) !!}
-            <button type="submit" class="ui icon button red basic">
+            <button type="submit" class="ui icon button red inverted">
                 <i class="trash icon"></i> 刪除會員
             </button>
             {!! Form::close() !!}
