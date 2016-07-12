@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard'     => 'web',
         'passwords' => 'users',
     ],
 
@@ -37,12 +37,12 @@ return [
 
     'guards' => [
         'web' => [
-            'driver' => 'session',
+            'driver'   => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver' => 'token',
+            'driver'   => 'token',
             'provider' => 'users',
         ],
     ],
@@ -64,10 +64,19 @@ return [
     |
     */
 
+    /**
+     * FIXME: 額外設定model
+     * 額外加上的model，須與下面那個相同
+     * 為了使Entrust能夠順利刪除角色
+     * @link https://github.com/Zizaco/entrust/issues/472
+     * @see \Zizaco\Entrust\Traits\EntrustRoleTrait::users
+     */
+    'model'  => Hackersir\User::class,
+
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Hackersir\User::class,
+            'model'  => Hackersir\User::class,
         ],
 
         // 'users' => [
@@ -98,9 +107,9 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'email' => 'auth.emails.password',
-            'table' => 'password_resets',
-            'expire' => 60,
+            'email'    => 'auth.emails.password',
+            'table'    => 'password_resets',
+            'expire'   => 60,
         ],
     ],
 
