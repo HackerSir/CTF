@@ -6,10 +6,13 @@
     <style>
         #gravatar {
             border: 3px solid white;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         #gravatar:hover {
             border: 3px dotted black;
+        }
 
         /* TODO: 看要置左還是置中，然後看要不要抽出來做*/
         @media only screen and (max-width: 767px) {

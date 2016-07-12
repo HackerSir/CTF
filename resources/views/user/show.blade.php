@@ -10,6 +10,15 @@
                 text-align: center !important;
             }
         }
+        #gravatar {
+            border: 3px solid white;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        #gravatar:hover {
+            border: 3px dotted black;
+        }
     </style>
 @endsection
 
