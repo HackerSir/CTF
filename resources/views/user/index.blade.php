@@ -7,7 +7,7 @@
         <h2 class="ui teal header center aligned">
             會員清單
         </h2>
-        <table class="ui selectable celled padded table">
+        <table class="ui selectable celled padded unstackable table">
             <thead>
             <tr>
                 <th>使用者</th>
@@ -25,7 +25,7 @@
                                 {{ link_to_route('user.show', $user->name, $user, ['class' => 'ui large blue header']) }}
                                 <div class="sub header">
                                     @foreach($user->roles as $role)
-                                        <span class="ui tag label">{{ $role->display_name }}</span>
+                                        <span class="ui tag label single line">{{ $role->display_name }}</span>
                                     @endforeach
                                 </div>
                             </div>
