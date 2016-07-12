@@ -95,7 +95,20 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //會員系統
-Route::auth();
+//麵包屑要求對全部錄由命名，因此將 Route::auth() 複製出來自己命名
+//Route::auth();
+// Authentication Routes...
+$this->get('login', 'Auth\AuthController@showLoginForm')->name('auth.login');
+$this->post('login', 'Auth\AuthController@login')->name('auth.login');
+$this->get('logout', 'Auth\AuthController@logout')->name('auth.logout');
+// Registration Routes...
+$this->get('register', 'Auth\AuthController@showRegistrationForm')->name('auth.register');
+$this->post('register', 'Auth\AuthController@register')->name('auth.register');
+// Password Reset Routes...
+$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('auth.password.reset');
+$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('auth.password.email');
+$this->post('password/reset', 'Auth\PasswordController@reset')->name('auth.password.reset');
+
 //驗證信箱
 Route::get('confirm/{confirmCode}', [
     'as'   => 'auth.confirm',
