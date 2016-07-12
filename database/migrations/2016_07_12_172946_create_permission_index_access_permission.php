@@ -14,14 +14,15 @@ class CreatePermissionIndexAccessPermission extends Migration
      */
     public function up()
     {
-        $permission = Permission::create([
+        $permPermissionIndexAccess = Permission::create([
             'name'         => 'permission.index.access',
             'display_name' => '進入權限面板',
             'description'  => '進入權限面板，查看各角色權限清單'
         ]);
 
-        $role = Role::where('name', 'admin')->first();
-        $role->attachPermission($permission);
+        /** @var Role $admin */
+        $admin = Role::where('name', 'admin')->first();
+        $admin->attachPermission($permPermissionIndexAccess);
     }
 
     /**

@@ -14,14 +14,15 @@ class CreateRoleManagePermission extends Migration
      */
     public function up()
     {
-        $permission = Permission::create([
+        $permRoleManage = Permission::create([
             'name'         => 'role.manage',
             'display_name' => '管理角色',
             'description'  => '新增、修改、刪除角色'
         ]);
 
-        $role = Role::where('name', 'admin')->first();
-        $role->attachPermission($permission);
+        /** @var Role $admin */
+        $admin = Role::where('name', 'admin')->first();
+        $admin->attachPermission($permRoleManage);
     }
 
     /**
