@@ -18,8 +18,6 @@ Route::get('about', [
     }
 ]);
 
-Route::resource('topic', 'TopicController');
-
 Route::get('/', [
     'as' => 'index',
     function () {
@@ -80,6 +78,8 @@ Route::group(['middleware' => 'email'], function () {
             'uses' => 'ProfileController@updatePassword'
         ]);
     });
+    //題目系統
+    Route::resource('topic', 'TopicController');
 });
 
 //會員（無須完成信箱驗證）
