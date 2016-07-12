@@ -7,13 +7,6 @@
         <h2 class="ui teal header center aligned">
             權限與角色
         </h2>
-        {{-- TODO: 麵包屑抽出來（建議）--}}
-        <div class="ui grey message">
-            <div class="ui breadcrumb">
-                <div class="section">現在位置：</div>
-                <div class="active section">權限與角色</div>
-            </div>
-        </div>
         <h3 class="ui header center aligned">權限清單</h3>
         <table class="ui selectable celled padded unstackable table">
             <thead>

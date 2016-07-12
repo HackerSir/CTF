@@ -167,6 +167,7 @@ return [
         Laravolt\SemanticForm\ServiceProvider::class,
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
+        DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
 
 
     ],
@@ -225,6 +226,7 @@ return [
         'SemanticForm' => Laravolt\SemanticForm\Facade::class,
         'Gravatar'     => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
         'Menu'         => Lavary\Menu\Facade::class,
+        'Breadcrumbs'  => DaveJamesMiller\Breadcrumbs\Facade::class,
     ],
 
 ];

@@ -4,20 +4,6 @@
 
 @section('content')
     <div class="ui container">
-        {{-- TODO: 麵包屑抽出來（建議）--}}
-        <div class="ui grey message">
-            <div class="ui breadcrumb">
-                <div class="section">現在位置：</div>
-                <a class="section">{{ link_to_route('user.index', '會員清單') }}</a>
-                <i class="right arrow icon divider"></i>
-                <div class="active section">會員資料</div>
-                <i class="right arrow icon divider"></i>
-                <div class="active section">{{ link_to_route('user.show', $user->name, $user) }}</div>
-                <i class="right arrow icon divider"></i>
-                <div class="active section">編輯會員資料</div>
-            </div>
-        </div>
-
         <h2 class="ui teal header center aligned">
             {{ $user->name }} - 編輯會員資料
         </h2>

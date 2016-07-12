@@ -7,13 +7,6 @@
         <h2 class="ui teal header center aligned">
             會員清單
         </h2>
-        {{-- TODO: 麵包屑抽出來（建議）--}}
-        <div class="ui grey message">
-            <div class="ui breadcrumb">
-                <div class="section">現在位置：</div>
-                <div class="active section">會員清單</div>
-            </div>
-        </div>
         <table class="ui selectable celled padded table">
             <thead>
             <tr>

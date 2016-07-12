@@ -27,17 +27,6 @@
         <h2 class="ui teal header center aligned">
             {{ $user->name }} - 會員資料
         </h2>
-        {{-- TODO: 麵包屑抽出來（建議）--}}
-        <div class="ui grey message">
-            <div class="ui breadcrumb">
-                <div class="section">現在位置：</div>
-                <a class="section">{{ link_to_route('user.index', '會員清單') }}</a>
-                <i class="right arrow icon divider"></i>
-                <div class="active section">會員資料</div>
-                <i class="right arrow icon divider"></i>
-                <div class="active section">{{ $user->name }}</div>
-            </div>
-        </div>
         <div class="ui header center aligned">
             {{-- Gravatar大頭貼 --}}
             <a href="https://zh-tw.gravatar.com/" target="_blank" title="透過Gravatar更換照片"

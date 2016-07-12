@@ -57,6 +57,10 @@
         @include('navbar.navbar')
         {{-- Content --}}
         <div class="pusher" style="background-color: rgba(0, 0, 0, 0) !important;">
+            {{-- Breadcrumbs --}}
+            @if(!Request::is('/'))
+            {!! Breadcrumbs::render() !!}
+            @endif
             @yield('content')
             {{-- Footer --}}
             <div class="ui footer" id="footer">
