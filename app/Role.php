@@ -7,7 +7,7 @@ use Zizaco\Entrust\EntrustRole;
 /**
  * 角色
  *
- * @package Hackersir
+ * @package App
  *
  * @property-read integer id
  * @property string name

@@ -7,7 +7,7 @@ use Zizaco\Entrust\EntrustPermission;
 /**
  * 權限
  *
- * @package Hackersir
+ * @package App
  *
  * @property-read integer id
  * @property string name
