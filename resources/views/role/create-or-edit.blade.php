@@ -7,6 +7,9 @@
 
 @section('content')
     <div class="ui container">
+        <h2 class="ui teal header center aligned">
+            {{ $methodText }}角色
+        </h2>
         {{-- TODO: 麵包屑抽出來（建議）--}}
         <div class="ui grey message">
             <div class="ui breadcrumb">
@@ -16,9 +19,6 @@
                 <div class="active section">{{ $methodText }}角色</div>
             </div>
         </div>
-        <h2 class="ui teal header center aligned">
-            {{ $methodText }}角色
-        </h2>
         @if($isEditMode)
             {!! SemanticForm::open()->action(route('role.update', $role))->put() !!}
             {!! SemanticForm::bind($role) !!}
