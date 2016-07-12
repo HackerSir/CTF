@@ -42,6 +42,9 @@ class LaravelMenu
                 if (Entrust::can(['user.manage', 'user.view'])) {
                     $menu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                 }
+                if (Entrust::can('permission.index.access')) {
+                    $menu->add('權限清單', ['route' => 'permission.index']);
+                }
                 $userMenu = $menu->add(Auth::user()->name, 'javascript:void(0)');
                 $userMenu->add('個人資料', ['route' => 'profile'])->active('profile/*');
                 $userMenu->add('登出', ['action' => 'Auth\AuthController@logout']);
