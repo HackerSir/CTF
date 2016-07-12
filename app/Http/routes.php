@@ -95,7 +95,7 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //會員系統
-//麵包屑要求對全部錄由命名，因此將 Route::auth() 複製出來自己命名
+//麵包屑要求對全部路由命名，因此將 Route::auth() 複製出來自己命名
 //Route::auth();
 // Authentication Routes...
 $this->get('login', 'Auth\AuthController@showLoginForm')->name('auth.login');
