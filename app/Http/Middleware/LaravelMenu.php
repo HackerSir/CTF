@@ -49,7 +49,7 @@ class LaravelMenu
                         $adminMenu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                     }
                     if (Entrust::can('permission.index.access')) {
-                        $adminMenu->add('權限清單', ['route' => 'permission.index']);
+                        $adminMenu->add('權限與角色', ['route' => 'permission.index']);
                     }
 
                     $adminMenu->add(
