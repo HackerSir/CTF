@@ -32,14 +32,16 @@ class RoleController extends Controller
         $this->validate($request, [
             'name'         => 'required|unique:roles,name',
             'display_name' => 'required',
-            'permissions'  => 'array'
+            'permissions'  => 'array',
+            'color'        => 'required|in:' . implode(',', Role::$validColors)
         ]);
 
-        $role = new Role();
-        $role->name = $request->get('name');
-        $role->display_name = $request->get('display_name');
-        $role->description = $request->get('description');
-        $role->save();
+        $role = Role::create([
+            'name'         => $request->get('name'),
+            'display_name' => $request->get('display_name'),
+            'description'  => $request->get('description'),
+            'color'        => $request->get('color')
+        ]);
         $role->perms()->sync($request->get('permissions') ?: []);
 
         return redirect()->route('permission.index')->with('global', '角色已建立');
@@ -53,9 +55,6 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        if ($role->name == 'admin') {
-            return back()->with('warning', '管理員角色無法編輯');
-        }
         $permissions = Permission::all();
         return view('role.create-or-edit', compact('role', 'permissions'));
     }
@@ -72,14 +71,25 @@ class RoleController extends Controller
         $this->validate($request, [
             'name'         => 'required|unique:roles,name,' . $role->id . ',id',
             'display_name' => 'required',
-            'permissions'  => 'array'
+            'permissions'  => 'array',
+            'color'        => 'required|in:' . implode(',', Role::$validColors)
         ]);
 
-        $role->name = $request->get('name');
-        $role->display_name = $request->get('display_name');
-        $role->description = $request->get('description');
-        $role->save();
-        $role->perms()->sync($request->get('permissions') ?: []);
+        if ($role->name == 'admin') {
+            $role->update([
+                'display_name' => $request->get('display_name'),
+                'description'  => $request->get('description'),
+                'color'        => $request->get('color')
+            ]);
+        } else {
+            $role->update([
+                'name'         => $request->get('name'),
+                'display_name' => $request->get('display_name'),
+                'description'  => $request->get('description'),
+                'color'        => $request->get('color')
+            ]);
+            $role->perms()->sync($request->get('permissions') ?: []);
+        }
 
         return redirect()->route('permission.index')->with('global', '角色已更新');
     }
