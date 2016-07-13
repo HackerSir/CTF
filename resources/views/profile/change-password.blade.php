@@ -13,8 +13,8 @@
 
             {{-- TODO: text-align: center要獨立成一個text-center --}}
             <div style="text-align: center">
-                <a href="{{ route('profile') }}" class="ui red inverted icon button"><i class="icon arrow left"></i> 返回個人資料</a>
-                {!! SemanticForm::submit('Update password')->addClass('ui teal inverted submit button') !!}
+                <a href="{{ route('profile') }}" class="ui icon blue inverted button"><i class="icon arrow left"></i> 返回個人資料</a>
+                {!! SemanticForm::submit('<i class="checkmark icon"></i> 更新密碼')->addClass('ui icon submit red inverted button') !!}
             </div>
         </div>
 

@@ -33,8 +33,8 @@
                 @endforeach
             </div>
             <div style="text-align: center">
-                <a href="{{ route('user.show', $user) }}" class="ui red inverted icon button"><i class="icon arrow left"></i> 返回會員資料</a>
-                {!! SemanticForm::submit('<i class="checkmark icon"></i> 更新會員資料')->addClass('ui blue inverted submit icon button') !!}
+                <a href="{{ route('user.show', $user) }}" class="ui icon blue inverted button"><i class="icon arrow left"></i> 返回會員資料</a>
+                {!! SemanticForm::submit('<i class="checkmark icon"></i> 更新會員資料')->addClass('ui icon submit red inverted button') !!}
             </div>
         </div>
 

@@ -71,9 +71,11 @@
 
         {{-- TODO: text-align: center要獨立成一個text-center --}}
         <div style="text-align: center">
-            <a href="{{ route('profile.edit') }}" class="ui icon red inverted button"><i class="icon edit"></i> 編輯資料</a>
-            <a href="{{ route('profile.change-password') }}" class="ui icon brown inverted button"><i
-                        class="icon lock"></i> 修改密碼</a>
+            <a href="{{ route('profile.edit') }}" class="ui icon brown inverted button">
+                <i class="icon edit"></i> 編輯資料</a>
+            <a href="{{ route('profile.change-password') }}" class="ui icon brown inverted button">
+                <i class="icon lock"></i> 修改密碼
+            </a>
         </div>
         {{--</div>--}}
     </div>

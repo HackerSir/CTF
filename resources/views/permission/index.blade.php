@@ -39,7 +39,7 @@
         </table>
         <h3 class="ui header center aligned">角色清單</h3>
         @permission('role.manage')
-        <a href="{{ route('role.create') }}" class="ui icon blue inverted button">
+        <a href="{{ route('role.create') }}" class="ui icon brown inverted button">
             <i class="plus icon" aria-hidden="true"></i> 新增角色
         </a>
         @endpermission
@@ -63,7 +63,7 @@
                     </td>
                     <td class="four wide">
                         @permission('role.manage')
-                        <a href="{{ route('role.edit', $role) }}" class="ui icon button blue">
+                        <a href="{{ route('role.edit', $role) }}" class="ui icon brown inverted button">
                             <i class="edit icon"></i> 編輯角色
                         </a>
                         @unless($role->name == 'admin')
@@ -73,7 +73,7 @@
                                 'style' => 'display: inline',
                                 'onSubmit' => "return confirm('確定要刪除此角色嗎？');"
                             ]) !!}
-                            <button type="submit" class="ui icon button red">
+                            <button type="submit" class="ui icon red inverted button">
                                 <i class="trash icon"></i> 刪除角色
                             </button>
                             {!! Form::close() !!}

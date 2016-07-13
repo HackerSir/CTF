@@ -65,9 +65,9 @@
             </div>
             <div style="text-align: center">
                 <a href="{{ route('permission.index') }}" class="ui blue inverted icon button">
-                    <i class="icon arrow left"></i> 返回
+                    <i class="icon arrow left"></i> 返回列表
                 </a>
-                {!! SemanticForm::submit('確認')->addClass('ui red inverted submit button') !!}
+                {!! SemanticForm::submit('<i class="checkmark icon"></i> 確認')->addClass('ui icon submit red inverted button') !!}
             </div>
         </div>
         @if($errors->count())

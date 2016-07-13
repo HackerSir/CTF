@@ -34,16 +34,19 @@
                     <td>
                         {{ $user->email }}
                         @if (!$user->isConfirmed)
-                            <i class="warning sign icon red popup" data-content="尚未完成信箱驗證" data-variation="inverted"></i>
+                            <i class="warning sign icon red popup" data-content="尚未完成信箱驗證"
+                               data-variation="inverted"></i>
                         @endif
                     </td>
                     <td>
-                        <a href="{{ route('user.show', $user) }}" class="ui icon button" title="會員資料"><i
-                                class="user icon"></i></a>
-                        <a href="{{ route('user.edit', $user) }}" class="ui icon button blue" title="編輯會員"><i
-                                class="edit icon"></i></a>
+                        <a href="{{ route('user.show', $user) }}" class="ui icon blue inverted button" title="會員資料">
+                            <i class="user icon"></i>
+                        </a>
+                        <a href="{{ route('user.edit', $user) }}" class="ui icon brown inverted button" title="編輯會員">
+                            <i class="edit icon"></i>
+                        </a>
                         {!! Form::open(['route' => ['user.destroy', $user], 'style' => 'display: inline', 'method' => 'DELETE', 'onSubmit' => "return confirm('確定要刪除此會員嗎？');"]) !!}
-                        <button type="submit" class="ui icon button red" title="刪除會員">
+                        <button type="submit" class="ui icon red inverted button" title="刪除會員">
                             <i class="trash icon"></i>
                         </button>
                         {!! Form::close() !!}

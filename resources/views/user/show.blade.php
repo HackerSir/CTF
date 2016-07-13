@@ -80,7 +80,7 @@
                 會員清單</a>
             <a href="{{ route('user.edit', $user) }}" class="ui brown inverted icon button"><i class="edit icon"></i> 編輯資料</a>
             {!! Form::open(['route' => ['user.destroy', $user], 'style' => 'display: inline', 'method' => 'DELETE', 'onSubmit' => "return confirm('確定要刪除此會員嗎？');"]) !!}
-            <button type="submit" class="ui icon button red inverted">
+            <button type="submit" class="ui icon red inverted button">
                 <i class="trash icon"></i> 刪除會員
             </button>
             {!! Form::close() !!}
