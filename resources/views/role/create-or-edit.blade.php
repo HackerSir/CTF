@@ -24,8 +24,8 @@
                 <label>權限</label>
                 @foreach($permissions as $permission)
                     <div class="ui checkbox">
-                        {{ Form::checkbox('permissions[]', $permission->id, isset($role) && $role->perms->contains($permission), ['id' => $permission->id]) }}
-                        <label for="{{ $permission->id }}">
+                        {{ Form::checkbox('permissions[]', $permission->id, isset($role) && $role->perms->contains($permission), ['id' => 'checkbox_' . $permission->id]) }}
+                        <label for="checkbox_{{ $permission->id }}">
                             {{ $permission->display_name }}（{{ $permission->name }}）<br/>
                             <small><i class="angle double right icon"></i> {{ $permission->description }}</small>
                         </label>
