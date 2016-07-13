@@ -23,7 +23,6 @@
                     <div class="ui checkbox">
                         @if($user->id == Auth::user()->id && $role->name == 'admin')
                             {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name), ['disabled']) !!}
-                            {{--  TODO: 這邊我改用<i>去放，覺得不好再改回來吧 --}}
                             <label>{{ $role->display_name }} <i class="warning sign icon red popup" data-content="禁止解除自己的管理員職務" data-variation="inverted"></i></label>
                         @else
                             {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name)) !!}

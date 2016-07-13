@@ -25,7 +25,7 @@
                                 {{ link_to_route('user.show', $user->name, $user, ['class' => 'ui large blue header']) }}
                                 <div class="sub header">
                                     @foreach($user->roles as $role)
-                                        <span class="ui tag label single line">{{ $role->display_name }}</span>
+                                        {!! $role->tag !!}
                                     @endforeach
                                 </div>
                             </div>
@@ -34,7 +34,7 @@
                     <td>
                         {{ $user->email }}
                         @if (!$user->isConfirmed)
-                            <i class="warning sign icon red" title="尚未完成信箱驗證"></i>
+                            <i class="warning sign icon red popup" data-content="尚未完成信箱驗證" data-variation="inverted"></i>
                         @endif
                     </td>
                     <td>
@@ -56,4 +56,10 @@
             {!! $users->appends(Request::except(['page']))->render() !!}
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('i.popup').popup();
+    </script>
 @endsection

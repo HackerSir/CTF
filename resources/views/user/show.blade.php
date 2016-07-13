@@ -44,7 +44,7 @@
                 <td>
                     {{ $user->email }}
                     @if (!$user->isConfirmed)
-                        <i class="warning sign icon red" title="尚未完成信箱驗證"></i>
+                        <i class="warning sign icon red popup" data-content="尚未完成信箱驗證" data-variation="inverted"></i>
                     @endif
                 </td>
             </tr>
@@ -52,7 +52,7 @@
                 <td class="right aligned">角色：</td>
                 <td>
                     @foreach($user->roles as $role)
-                        {{ $role->display_name }}<br/>
+                        {!! $role->tag !!}
                     @endforeach
                 </td>
             </tr>
@@ -86,4 +86,10 @@
             {!! Form::close() !!}
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('i.popup').popup();
+    </script>
 @endsection
