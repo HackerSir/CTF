@@ -23,7 +23,7 @@
                     <div class="ui checkbox">
                         @if($user->id == Auth::user()->id && $role->name == 'admin')
                             {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name), ['disabled']) !!}
-                            <label>{{ $role->display_name }} <i class="warning sign icon red popup" data-content="禁止解除自己的管理員職務" data-variation="inverted"></i></label>
+                            <label>{{ $role->display_name }} <i class="warning sign icon red popup" data-content="禁止解除自己的管理員職務"></i></label>
                         @else
                             {!! Form::checkbox('role[]', $role->id, $user->hasRole($role->name)) !!}
                             <label>{{ $role->display_name }} </label>
@@ -54,6 +54,8 @@
 
 @section('js')
     <script>
-        $('i.popup').popup();
+        $('i.popup').popup({
+            variation: 'inverted'
+        });
     </script>
 @endsection

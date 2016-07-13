@@ -44,7 +44,7 @@
                 <td>
                     {{ $user->email }}
                     @if (!$user->isConfirmed)
-                        <i class="warning sign icon red popup" data-content="尚未完成信箱驗證" data-variation="inverted"></i>
+                        <i class="warning sign icon red popup" data-content="尚未完成信箱驗證"></i>
                     @endif
                 </td>
             </tr>
@@ -90,6 +90,8 @@
 
 @section('js')
     <script>
-        $('i.popup').popup();
+        $('i.popup').popup({
+            variation: 'inverted'
+        });
     </script>
 @endsection
