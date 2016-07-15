@@ -14,6 +14,7 @@ use Zizaco\Entrust\EntrustRole;
  * @property string display_name
  * @property string description
  * @property string color
+ * @property boolean protect
  *
  * @property \Carbon\Carbon|null created_at
  * @property \Carbon\Carbon|null updated_at
@@ -24,7 +25,8 @@ class Role extends EntrustRole
         'name',
         'display_name',
         'description',
-        'color'
+        'color',
+        'protect'
     ];
 
     public static $validColors = [

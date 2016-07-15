@@ -47,6 +47,7 @@
             <thead>
             <tr style="text-align: center">
                 <th class="single line">角色</th>
+                <th class="single line">保護</th>
                 <th class="single line">標籤</th>
                 <th class="single line">操作</th>
             </tr>
@@ -58,6 +59,11 @@
                         {{ $role->display_name }}（{{ $role->name }}）<br/>
                         <small><i class="angle double right icon"></i> {{ $role->description }}</small>
                     </td>
+                    <td class="one wide" style="text-align: center">
+                        @if($role->protect)
+                            <i class="big lock icon"></i>
+                        @endif
+                    </td>
                     <td class="one wide">
                         {!! $role->tag !!}
                     </td>
@@ -66,7 +72,7 @@
                         <a href="{{ route('role.edit', $role) }}" class="ui icon brown inverted button">
                             <i class="edit icon"></i> 編輯角色
                         </a>
-                        @unless($role->name == 'admin')
+                        @unless($role->protect)
                             {!! Form::open([
                                 'method' => 'DELETE',
                                 'route' => ['role.destroy', $role],

@@ -40,7 +40,8 @@ class RoleController extends Controller
             'name'         => $request->get('name'),
             'display_name' => $request->get('display_name'),
             'description'  => $request->get('description'),
-            'color'        => $request->get('color')
+            'color'        => $request->get('color'),
+            'protect'      => false
         ]);
         $role->perms()->sync($request->get('permissions') ?: []);
 
@@ -75,7 +76,7 @@ class RoleController extends Controller
             'color'        => 'required|in:' . implode(',', Role::$validColors)
         ]);
 
-        if ($role->name == 'admin') {
+        if ($role->protect) {
             $role->update([
                 'display_name' => $request->get('display_name'),
                 'description'  => $request->get('description'),
@@ -102,8 +103,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        if ($role->name == 'admin') {
-            return back()->with('warning', '管理員角色無法刪除');
+        if ($role->protect) {
+            return back()->with('warning', '無法刪除受保護角色');
         }
         $role->delete();
         return redirect()->route('permission.index')->with('global', '角色已刪除');
