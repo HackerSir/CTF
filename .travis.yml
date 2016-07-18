@@ -1,0 +1,22 @@
+language: php
+
+php:
+  - 5.6
+  - 7
+  - hhvm
+
+before_script:
+  - cp .env.travis .env
+  - mysql -e 'create database homestead_test;'
+  - composer self-update
+  - composer install --prefer-dist --no-dev --optimize-autoloader --quiet
+
+script:
+  - vendor/bin/phpunit
+
+notifications:
+  email:
+    recipients:
+      - hackersir-developer@googlegroups.com
+    on_success: change
+    on_failure: always
