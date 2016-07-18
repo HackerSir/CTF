@@ -9,7 +9,7 @@ before_script:
   - cp .env.travis .env
   - mysql -e 'create database homestead_test;'
   - composer self-update
-  - composer install --prefer-dist --no-dev --optimize-autoloader --quiet
+  - composer install --prefer-dist --optimize-autoloader --quiet
 
 script:
   - vendor/bin/phpunit
