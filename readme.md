@@ -1,4 +1,6 @@
 # HackerSir CTF
+[![Build Status(develop)](https://travis-ci.org/HackerSir/CTF.svg?branch=develop)](https://travis-ci.org/HackerSir/CTF)
+  
 HackerSir Crazy Team Fight!(ry  
 Let's try your best.  
 
