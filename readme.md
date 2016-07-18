@@ -1,5 +1,6 @@
 # HackerSir CTF
 [![Build Status(develop)](https://travis-ci.org/HackerSir/CTF.svg?branch=develop)](https://travis-ci.org/HackerSir/CTF)
+[![Coverage Status](https://coveralls.io/repos/github/HackerSir/CTF/badge.svg?branch=master)](https://coveralls.io/github/HackerSir/CTF?branch=master)
   
 HackerSir Crazy Team Fight!(ry  
 Let's try your best.  
