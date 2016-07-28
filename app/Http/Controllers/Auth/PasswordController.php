@@ -55,7 +55,7 @@ class PasswordController extends Controller
      */
     public function getChangePassword()
     {
-        return view('profile.change-password', ['user' => $this->user]);
+        return view('auth.passwords.change-password', ['user' => $this->user]);
     }
 
     /**
@@ -68,7 +68,7 @@ class PasswordController extends Controller
     {
         //檢查原密碼
         if (!Hash::check($request->get('password'), $this->user->getAuthPassword())) {
-            return redirect()->route('profile.change-password')->withErrors(['password' => '輸入有誤，請重新輸入。']);
+            return redirect()->route('auth.change-password')->withErrors(['password' => '輸入有誤，請重新輸入。']);
         }
         //檢查新密碼
         $this->validate($request, [

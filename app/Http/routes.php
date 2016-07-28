@@ -101,8 +101,8 @@ $this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->nam
 $this->post('password/reset', 'Auth\PasswordController@reset')->name('auth.password.reset');
 
 //修改密碼
-Route::get('change-password', 'Auth\PasswordController@getChangePassword')->name('profile.change-password');
-Route::put('update-password', 'Auth\PasswordController@updatePassword')->name('profile.update-password');
+Route::get('change-password', 'Auth\PasswordController@getChangePassword')->name('auth.change-password');
+Route::put('update-password', 'Auth\PasswordController@updatePassword')->name('auth.update-password');
 
 //驗證信箱
 Route::get('confirm/{confirmCode}', [

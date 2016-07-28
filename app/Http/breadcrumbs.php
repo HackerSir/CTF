@@ -17,10 +17,6 @@ Breadcrumbs::register('profile.edit', function ($breadcrumbs) {
     $breadcrumbs->parent('profile');
     $breadcrumbs->push('編輯個人資料', route('profile'));
 });
-Breadcrumbs::register('profile.change-password', function ($breadcrumbs) {
-    $breadcrumbs->parent('profile');
-    $breadcrumbs->push('修改密碼', route('profile'));
-});
 
 // User
 Breadcrumbs::register('user.index', function ($breadcrumbs) {
@@ -62,4 +58,9 @@ Breadcrumbs::register('auth.password.reset', function ($breadcrumbs) {
 });
 Breadcrumbs::register('auth.resend-confirm-mail', function ($breadcrumbs) {
     $breadcrumbs->push('重新發送驗證信件', route('auth.password.reset'));
+});
+
+Breadcrumbs::register('auth.change-password', function ($breadcrumbs) {
+    $breadcrumbs->parent('profile');
+    $breadcrumbs->push('修改密碼', route('profile'));
 });
