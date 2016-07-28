@@ -55,6 +55,13 @@ class AuthController extends Controller
             ]
         ]);
 
+        $this->middleware('auth', [
+            'only' => [
+                'resendConfirmMailPage',
+                'resendConfirmMail'
+            ]
+        ]);
+
         $this->mailService = $mailService;
     }
 
