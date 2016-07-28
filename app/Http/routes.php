@@ -68,15 +68,6 @@ Route::group(['middleware' => 'email'], function () {
             'as'   => 'profile.update',
             'uses' => 'ProfileController@updateProfile'
         ]);
-        //修改密碼
-        Route::get('change-password', [
-            'as'   => 'profile.change-password',
-            'uses' => 'ProfileController@getChangePassword'
-        ]);
-        Route::put('update-password', [
-            'as'   => 'profile.update-password',
-            'uses' => 'ProfileController@updatePassword'
-        ]);
     });
     //題目系統
     Route::resource('topic', 'TopicController');
@@ -108,6 +99,10 @@ $this->post('register', 'Auth\AuthController@register')->name('auth.register');
 $this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('auth.password.reset');
 $this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('auth.password.email');
 $this->post('password/reset', 'Auth\PasswordController@reset')->name('auth.password.reset');
+
+//修改密碼
+Route::get('change-password', 'Auth\PasswordController@getChangePassword')->name('profile.change-password');
+Route::put('update-password', 'Auth\PasswordController@updatePassword')->name('profile.update-password');
 
 //驗證信箱
 Route::get('confirm/{confirmCode}', [
