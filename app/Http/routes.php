@@ -89,16 +89,16 @@ Route::group(['middleware' => 'auth'], function () {
 //麵包屑要求對全部路由命名，因此將 Route::auth() 複製出來自己命名
 //Route::auth();
 // Authentication Routes...
-$this->get('login', 'Auth\AuthController@showLoginForm')->name('auth.login');
-$this->post('login', 'Auth\AuthController@login')->name('auth.login');
-$this->get('logout', 'Auth\AuthController@logout')->name('auth.logout');
+Route::get('login', 'Auth\AuthController@showLoginForm')->name('auth.login');
+Route::post('login', 'Auth\AuthController@login')->name('auth.login');
+Route::get('logout', 'Auth\AuthController@logout')->name('auth.logout');
 // Registration Routes...
-$this->get('register', 'Auth\AuthController@showRegistrationForm')->name('auth.register');
-$this->post('register', 'Auth\AuthController@register')->name('auth.register');
+Route::get('register', 'Auth\AuthController@showRegistrationForm')->name('auth.register');
+Route::post('register', 'Auth\AuthController@register')->name('auth.register');
 // Password Reset Routes...
-$this->get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('auth.password.reset');
-$this->post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('auth.password.email');
-$this->post('password/reset', 'Auth\PasswordController@reset')->name('auth.password.reset');
+Route::get('password/reset/{token?}', 'Auth\PasswordController@showResetForm')->name('auth.password.reset');
+Route::post('password/email', 'Auth\PasswordController@sendResetLinkEmail')->name('auth.password.email');
+Route::post('password/reset', 'Auth\PasswordController@reset')->name('auth.password.reset');
 
 //修改密碼
 Route::get('change-password', 'Auth\PasswordController@getChangePassword')->name('auth.change-password');
