@@ -168,6 +168,7 @@ return [
         Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         DaveJamesMiller\Breadcrumbs\ServiceProvider::class,
+        Recca0120\LaravelTracy\ServiceProvider::class,
 
 
     ],
