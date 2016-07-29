@@ -10,6 +10,19 @@ use App\Http\Requests;
 
 class RoleController extends Controller
 {
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $roles = Role::all();
+        $permissions = Permission::with('roles')->get();
+        return view('role.index', compact(['roles', 'permissions']));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -45,7 +58,7 @@ class RoleController extends Controller
         ]);
         $role->perms()->sync($request->get('permissions') ?: []);
 
-        return redirect()->route('permission.index')->with('global', '角色已建立');
+        return redirect()->route('role.index')->with('global', '角色已建立');
     }
 
     /**
@@ -92,7 +105,7 @@ class RoleController extends Controller
             $role->perms()->sync($request->get('permissions') ?: []);
         }
 
-        return redirect()->route('permission.index')->with('global', '角色已更新');
+        return redirect()->route('role.index')->with('global', '角色已更新');
     }
 
     /**
@@ -107,6 +120,6 @@ class RoleController extends Controller
             return back()->with('warning', '無法刪除受保護角色');
         }
         $role->delete();
-        return redirect()->route('permission.index')->with('global', '角色已刪除');
+        return redirect()->route('role.index')->with('global', '角色已刪除');
     }
 }

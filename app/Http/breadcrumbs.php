@@ -32,15 +32,15 @@ Breadcrumbs::register('user.edit', function ($breadcrumbs, $user) {
 });
 
 // Permission & Role
-Breadcrumbs::register('permission.index', function ($breadcrumbs) {
-    $breadcrumbs->push('權限與角色', route('permission.index'));
+Breadcrumbs::register('role.index', function ($breadcrumbs) {
+    $breadcrumbs->push('角色管理', route('role.index'));
 });
 Breadcrumbs::register('role.create', function ($breadcrumbs) {
-    $breadcrumbs->parent('permission.index');
+    $breadcrumbs->parent('role.index');
     $breadcrumbs->push('新增角色', route('role.create'));
 });
 Breadcrumbs::register('role.edit', function ($breadcrumbs, $role) {
-    $breadcrumbs->parent('permission.index');
+    $breadcrumbs->parent('role.index');
     $breadcrumbs->push($role->name);
     $breadcrumbs->push('編輯角色', route('role.edit', $role));
 });

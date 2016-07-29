@@ -48,8 +48,8 @@ class LaravelMenu
                     if (Entrust::can(['user.manage', 'user.view'])) {
                         $adminMenu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                     }
-                    if (Entrust::can('permission.index.access')) {
-                        $adminMenu->add('權限與角色', ['route' => 'permission.index']);
+                    if (Entrust::can('role.manage')) {
+                        $adminMenu->add('角色管理', ['route' => 'role.index']);
                     }
 
                     $adminMenu->add(

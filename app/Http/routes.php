@@ -35,19 +35,11 @@ Route::group(['middleware' => 'email'], function () {
             'store'
         ]
     ]);
-    //權限清單
-    //權限：permission.index.access
-    Route::get('permission', [
-        'as'         => 'permission.index',
-        'uses'       => 'PermissionController@index',
-        'middleware' => 'permission:permission.index.access'
-    ]);
     //角色管理
     //權限：role.manage
     Route::group(['middleware' => 'permission:role.manage'], function () {
         Route::resource('role', 'RoleController', [
             'except' => [
-                'index',
                 'show'
             ]
         ]);
