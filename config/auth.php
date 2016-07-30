@@ -64,12 +64,13 @@ return [
     |
     */
 
-    /**
+    /*
      * FIXME: 額外設定model
      * 額外加上的model，須與下面那個相同
      * 為了使Entrust能夠順利刪除角色
-     * @link https://github.com/Zizaco/entrust/issues/472
-     * @see \Zizaco\Entrust\Traits\EntrustRoleTrait::users
+     *
+     * https://github.com/Zizaco/entrust/issues/472
+     * \Zizaco\Entrust\Traits\EntrustRoleTrait::users
      */
     'model'  => Hackersir\User::class,
 
