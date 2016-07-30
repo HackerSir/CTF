@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use App\Role;
 use Hackersir\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -20,15 +17,15 @@ class UserController extends Controller
         $this->middleware('permission:user.manage|user.view', [
             'only' => [
                 'index',
-                'show'
-            ]
+                'show',
+            ],
         ]);
         $this->middleware('permission:user.manage', [
             'only' => [
                 'edit',
                 'update',
-                'destroy'
-            ]
+                'destroy',
+            ],
         ]);
     }
 
@@ -40,6 +37,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::with('roles')->orderBy('id')->paginate();
+
         return view('user.index', compact('users'));
     }
 
@@ -63,6 +61,7 @@ class UserController extends Controller
     public function edit(User $user)
     {
         $roles = Role::all();
+
         return view('user.edit', compact(['user', 'roles']));
     }
 
@@ -76,7 +75,7 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $this->validate($request, [
-            'name' => 'required|max:255'
+            'name' => 'required|max:255',
         ]);
 
         $user->name = $request->get('name');
@@ -98,6 +97,7 @@ class UserController extends Controller
         }
         //儲存資料
         $user->save();
+
         return redirect()->route('user.show', $user)
             ->with('global', '資料修改完成。');
     }
@@ -115,6 +115,7 @@ class UserController extends Controller
                 ->with('warning', '無法刪除管理員，請先解除管理員角色。');
         }
         $user->delete();
+
         return redirect()->route('user.index')
             ->with('global', '會員已刪除。');
     }

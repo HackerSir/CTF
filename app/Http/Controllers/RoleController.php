@@ -6,11 +6,9 @@ use App\Permission;
 use App\Role;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
 class RoleController extends Controller
 {
-
     /**
      * Show the application dashboard.
      *
@@ -20,6 +18,7 @@ class RoleController extends Controller
     {
         $roles = Role::all();
         $permissions = Permission::with('roles')->get();
+
         return view('role.index', compact(['roles', 'permissions']));
     }
 
@@ -31,6 +30,7 @@ class RoleController extends Controller
     public function create()
     {
         $permissions = Permission::all();
+
         return view('role.create-or-edit', compact('permissions'));
     }
 
@@ -46,7 +46,7 @@ class RoleController extends Controller
             'name'         => 'required|unique:roles,name',
             'display_name' => 'required',
             'permissions'  => 'array',
-            'color'        => 'required|in:' . implode(',', Role::$validColors)
+            'color'        => 'required|in:' . implode(',', Role::$validColors),
         ]);
 
         $role = Role::create([
@@ -54,7 +54,7 @@ class RoleController extends Controller
             'display_name' => $request->get('display_name'),
             'description'  => $request->get('description'),
             'color'        => $request->get('color'),
-            'protect'      => false
+            'protect'      => false,
         ]);
         $role->perms()->sync($request->get('permissions') ?: []);
 
@@ -70,6 +70,7 @@ class RoleController extends Controller
     public function edit(Role $role)
     {
         $permissions = Permission::all();
+
         return view('role.create-or-edit', compact('role', 'permissions'));
     }
 
@@ -86,21 +87,21 @@ class RoleController extends Controller
             'name'         => 'required|unique:roles,name,' . $role->id . ',id',
             'display_name' => 'required',
             'permissions'  => 'array',
-            'color'        => 'required|in:' . implode(',', Role::$validColors)
+            'color'        => 'required|in:' . implode(',', Role::$validColors),
         ]);
 
         if ($role->protect) {
             $role->update([
                 'display_name' => $request->get('display_name'),
                 'description'  => $request->get('description'),
-                'color'        => $request->get('color')
+                'color'        => $request->get('color'),
             ]);
         } else {
             $role->update([
                 'name'         => $request->get('name'),
                 'display_name' => $request->get('display_name'),
                 'description'  => $request->get('description'),
-                'color'        => $request->get('color')
+                'color'        => $request->get('color'),
             ]);
             $role->perms()->sync($request->get('permissions') ?: []);
         }
@@ -120,6 +121,7 @@ class RoleController extends Controller
             return back()->with('warning', '無法刪除受保護角色');
         }
         $role->delete();
+
         return redirect()->route('role.index')->with('global', '角色已刪除');
     }
 }

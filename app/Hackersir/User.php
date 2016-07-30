@@ -8,14 +8,13 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
 /**
  * 使用者
  *
- * @package Hackersir
  *
- * @property-read integer id
+ * @property-read int id
  * @property string name
  * @property string email
  * @property string confirm_code
  * @property \Carbon\Carbon|null confirm_at
- * @property boolean isConfirmed
+ * @property bool isConfirmed
  * @property \Carbon\Carbon|null register_at
  * @property string register_ip
  * @property \Carbon\Carbon|null last_login_at
@@ -53,13 +52,13 @@ class User extends Authenticatable
     /** @var array $dates 自動轉換為Carbon的屬性 */
     protected $dates = ['confirm_at', 'register_at', 'last_login_at'];
 
-    /** @var integer $perPage 分頁時的每頁數量 */
+    /** @var int $perPage 分頁時的每頁數量 */
     protected $perPage = 50;
 
     /**
      * 帳號是否完成驗證
      *
-     * @return boolean
+     * @return bool
      */
     public function getIsConfirmedAttribute()
     {

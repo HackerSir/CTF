@@ -51,15 +51,15 @@ class AuthController extends Controller
                 'logout',
                 'emailConfirm',
                 'resendConfirmMailPage',
-                'resendConfirmMail'
-            ]
+                'resendConfirmMail',
+            ],
         ]);
 
         $this->middleware('auth', [
             'only' => [
                 'resendConfirmMailPage',
-                'resendConfirmMail'
-            ]
+                'resendConfirmMail',
+            ],
         ]);
 
         $this->mailService = $mailService;
@@ -149,6 +149,7 @@ class AuthController extends Controller
         if ($user->isConfirmed) {
             return redirect()->route('index');
         }
+
         return view('auth.resend-confirm-mail', compact('user'));
     }
 
@@ -167,6 +168,7 @@ class AuthController extends Controller
         }
         $user = Auth::user();
         $this->generateConfirmCodeAndSendConfirmMail($user);
+
         return redirect()->route('index')->with('global', '驗證信件已重新發送。');
     }
 

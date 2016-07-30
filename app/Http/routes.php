@@ -15,14 +15,14 @@ Route::get('about', [
     'as' => 'about',
     function () {
         return view('about');
-    }
+    },
 ]);
 
 Route::get('/', [
     'as' => 'index',
     function () {
         return view('index');
-    }
+    },
 ]);
 
 //會員（須完成信箱驗證）
@@ -32,16 +32,16 @@ Route::group(['middleware' => 'email'], function () {
     Route::resource('user', 'UserController', [
         'except' => [
             'create',
-            'store'
-        ]
+            'store',
+        ],
     ]);
     //角色管理
     //權限：role.manage
     Route::group(['middleware' => 'permission:role.manage'], function () {
         Route::resource('role', 'RoleController', [
             'except' => [
-                'show'
-            ]
+                'show',
+            ],
         ]);
     });
     //會員資料

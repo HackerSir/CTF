@@ -36,15 +36,15 @@ class PasswordController extends Controller
         $this->middleware('guest', [
             'except' => [
                 'getChangePassword',
-                'updatePassword'
-            ]
+                'updatePassword',
+            ],
         ]);
 
         $this->middleware('email', [
             'only' => [
                 'getChangePassword',
-                'updatePassword'
-            ]
+                'updatePassword',
+            ],
         ]);
     }
 
@@ -77,6 +77,7 @@ class PasswordController extends Controller
         //更新密碼
         $this->user->password = bcrypt($request->get('new_password'));
         $this->user->save();
+
         return redirect()->route('profile')->with('global', '密碼修改完成。');
     }
 }

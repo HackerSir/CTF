@@ -2,7 +2,6 @@
 
 use App\Permission;
 use App\Role;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class RemovePermissionIndexAccessPermission extends Migration
@@ -27,7 +26,7 @@ class RemovePermissionIndexAccessPermission extends Migration
         $permPermissionIndexAccess = Permission::create([
             'name'         => 'permission.index.access',
             'display_name' => '進入權限面板',
-            'description'  => '進入權限面板，查看各角色權限清單'
+            'description'  => '進入權限面板，查看各角色權限清單',
         ]);
 
         /** @var Role $admin */

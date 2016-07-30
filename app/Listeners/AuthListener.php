@@ -6,8 +6,6 @@ use Carbon\Carbon;
 use Hackersir\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
@@ -15,7 +13,6 @@ class AuthListener
 {
     /**
      * Create the event listener.
-     *
      */
     public function __construct()
     {

@@ -1,4 +1,5 @@
 <?php
+
 // About
 Breadcrumbs::register('about', function ($breadcrumbs) {
     $breadcrumbs->push('關於我們', route('profile'));

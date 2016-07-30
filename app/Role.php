@@ -7,14 +7,13 @@ use Zizaco\Entrust\EntrustRole;
 /**
  * 角色
  *
- * @package App
  *
- * @property-read integer id
+ * @property-read int id
  * @property string name
  * @property string display_name
  * @property string description
  * @property string color
- * @property boolean protect
+ * @property bool protect
  *
  * @property \Carbon\Carbon|null created_at
  * @property \Carbon\Carbon|null updated_at
@@ -27,7 +26,7 @@ class Role extends EntrustRole
         'display_name',
         'description',
         'color',
-        'protect'
+        'protect',
     ];
 
     public static $validColors = [
@@ -43,7 +42,7 @@ class Role extends EntrustRole
         'purple',
         'pink',
         'brown',
-        'black'
+        'black',
     ];
 
     public function getColorAttribute()
@@ -53,6 +52,7 @@ class Role extends EntrustRole
         if (!in_array($color, static::$validColors)) {
             $color = array_first(static::$validColors);
         }
+
         return $color;
     }
 
