@@ -18,6 +18,7 @@ use Zizaco\Entrust\EntrustRole;
  *
  * @property \Carbon\Carbon|null created_at
  * @property \Carbon\Carbon|null updated_at
+ * @mixin \Eloquent
  */
 class Role extends EntrustRole
 {

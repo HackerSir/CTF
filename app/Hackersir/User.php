@@ -25,6 +25,7 @@ use Zizaco\Entrust\Traits\EntrustUserTrait;
  *
  * @property \Carbon\Carbon|null created_at
  * @property \Carbon\Carbon|null updated_at
+ * @mixin \Eloquent
  */
 class User extends Authenticatable
 {
