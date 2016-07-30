@@ -7,9 +7,8 @@ use Zizaco\Entrust\EntrustPermission;
 /**
  * 權限
  *
- * @package App
  *
- * @property-read integer id
+ * @property-read int id
  * @property string name
  * @property string display_name
  * @property string description
@@ -25,7 +24,7 @@ class Permission extends EntrustPermission
     protected $fillable = [
         'name',
         'display_name',
-        'description'
+        'description',
     ];
 
     /**
@@ -40,6 +39,7 @@ class Permission extends EntrustPermission
                 return true;
             }
         }
+
         return false;
     }
 }

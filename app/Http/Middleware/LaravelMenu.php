@@ -6,7 +6,6 @@ use Closure;
 use Entrust;
 use Illuminate\Support\Facades\Auth;
 use Menu;
-use Thomaswelton\LaravelGravatar\Facades\Gravatar;
 
 class LaravelMenu
 {
@@ -21,14 +20,14 @@ class LaravelMenu
     {
         //左側
         Menu::make('left', function ($menu) {
-            /** @var \Lavary\Menu\Builder $menu */
+            /* @var \Lavary\Menu\Builder $menu */
             $menu->add('首頁', ['route' => 'index']);
             $menu->add('題目', ['route' => 'topic.index'])->active('topic/*');
             $menu->add('關於', ['route' => 'about']);
         });
         //右側
         Menu::make('right', function ($menu) {
-            /** @var \Lavary\Menu\Builder $menu */
+            /* @var \Lavary\Menu\Builder $menu */
             //會員
             if (Auth::check()) {
                 if (!Auth::user()->isConfirmed) {
@@ -37,7 +36,7 @@ class LaravelMenu
                         [
                             'route' => 'auth.resend-confirm-mail',
                             //FIXME: menu的a.item無法透過顏色class直接設定顏色
-                            'class' => 'red'
+                            'class' => 'red',
                         ]
                     );
                 }
@@ -66,6 +65,7 @@ class LaravelMenu
                 $menu->add('登入', ['action' => 'Auth\AuthController@showLoginForm']);
             }
         });
+
         return $next($request);
     }
 }

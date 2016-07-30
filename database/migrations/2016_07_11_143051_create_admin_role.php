@@ -1,7 +1,6 @@
 <?php
 
 use App\Role;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
 class CreateAdminRole extends Migration
@@ -16,7 +15,7 @@ class CreateAdminRole extends Migration
         $admin = Role::create([
             'name'         => 'admin',
             'display_name' => '管理員',
-            'description'  => '擁有最高權限的網站管理者'
+            'description'  => '擁有最高權限的網站管理者',
         ]);
     }
 

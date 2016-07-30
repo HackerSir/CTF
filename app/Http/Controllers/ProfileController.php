@@ -47,10 +47,11 @@ class ProfileController extends Controller
     public function updateProfile(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|max:255'
+            'name' => 'required|max:255',
         ]);
         $this->user->name = $request->get('name');
         $this->user->save();
+
         return redirect()->route('profile')->with('global', '資料修改完成。');
     }
 }

@@ -45,7 +45,7 @@ class MailService
     {
         $data = [
             'name' => $mailTo->name,
-            'link' => $link
+            'link' => $link,
         ];
         $this->mail->send('emails.email_confirmation', $data, function (Message $message) use ($mailTo) {
             $message->to($mailTo->email, $mailTo->name);
