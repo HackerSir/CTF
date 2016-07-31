@@ -2,6 +2,7 @@
 [![Build Status(develop)](https://travis-ci.org/HackerSir/CTF.svg?branch=develop)](https://travis-ci.org/HackerSir/CTF)
 [![codecov](https://codecov.io/gh/HackerSir/CTF/branch/develop/graph/badge.svg)](https://codecov.io/gh/HackerSir/CTF)
 [![Style CI(develop)](https://styleci.io/repos/63316299/shield?branch=develop)](https://styleci.io/repos/63316299/)
+[![License](https://img.shields.io/github/license/HackerSir/CTF.svg)](https://raw.githubusercontent.com/HackerSir/CTF/master/LICENSE)
   
 HackerSir Crazy Team Fight!(ry  
 Let's try your best.  
