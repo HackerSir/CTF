@@ -4,10 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Services\MailService;
 use Carbon\Carbon;
-use GrahamCampbell\Throttle\Facades\Throttle;
 use Hackersir\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Throttle;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -106,7 +105,7 @@ class AuthController extends Controller
         //呼叫原始註冊方法
         $result = $this->originalRegister($request);
         /** @var User $user */
-        $user = Auth::user();
+        $user = auth()->user();
         $this->generateConfirmCodeAndSendConfirmMail($user);
         //紀錄註冊時間與IP
         $user->register_at = Carbon::now();
@@ -145,7 +144,7 @@ class AuthController extends Controller
      */
     public function resendConfirmMailPage()
     {
-        $user = Auth::user();
+        $user = auth()->user();
         if ($user->isConfirmed) {
             return redirect()->route('index');
         }
@@ -166,7 +165,7 @@ class AuthController extends Controller
         if (!$throttler->attempt()) {
             return redirect()->route('auth.resend-confirm-mail')->with('warning', '信件請求過於頻繁，請等待5分鐘。');
         }
-        $user = Auth::user();
+        $user = auth()->user();
         $this->generateConfirmCodeAndSendConfirmMail($user);
 
         return redirect()->route('index')->with('global', '驗證信件已重新發送。');

@@ -4,7 +4,6 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Entrust;
-use Illuminate\Support\Facades\Auth;
 use Menu;
 
 class LaravelMenu
@@ -29,8 +28,8 @@ class LaravelMenu
         Menu::make('right', function ($menu) {
             /* @var \Lavary\Menu\Builder $menu */
             //會員
-            if (Auth::check()) {
-                if (!Auth::user()->isConfirmed) {
+            if (auth()->check()) {
+                if (!auth()->user()->isConfirmed) {
                     $menu->add(
                         '<i class="ui icon alarm red"></i> 尚未完成信箱驗證',
                         [
@@ -57,7 +56,7 @@ class LaravelMenu
                     )->link->attr('target', '_blank');
                 }
                 /** @var \Lavary\Menu\Builder $userMenu */
-                $userMenu = $menu->add(Auth::user()->name, 'javascript:void(0)');
+                $userMenu = $menu->add(auth()->user()->name, 'javascript:void(0)');
                 $userMenu->add('個人資料', ['route' => 'profile'])->active('profile/*');
                 $userMenu->add('登出', ['action' => 'Auth\AuthController@logout']);
             } else {

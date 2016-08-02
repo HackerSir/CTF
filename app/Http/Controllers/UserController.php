@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Role;
 use Hackersir\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -81,7 +80,7 @@ class UserController extends Controller
         $user->name = $request->get('name');
         //管理員禁止去除自己的管理員職務
         $keepAdmin = false;
-        if ($user->id == Auth::user()->id) {
+        if ($user->id == auth()->user()->id) {
             $keepAdmin = true;
         }
         //移除原有權限

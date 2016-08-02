@@ -5,7 +5,6 @@ namespace App\Services;
 use Hackersir\User;
 use Illuminate\Mail\Mailer;
 use Illuminate\Mail\Message;
-use Illuminate\Support\Facades\Config;
 
 class MailService
 {
@@ -49,7 +48,7 @@ class MailService
         ];
         $this->mail->send('emails.email_confirmation', $data, function (Message $message) use ($mailTo) {
             $message->to($mailTo->email, $mailTo->name);
-            $message->subject('[' . Config::get('site.name') . '] 信箱驗證');
+            $message->subject('[' . config('site.name') . '] 信箱驗證');
         });
     }
 }

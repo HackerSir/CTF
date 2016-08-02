@@ -6,8 +6,7 @@ use Carbon\Carbon;
 use Hackersir\User;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Auth\Events\Logout;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Request;
+use Request;
 
 class AuthListener
 {
@@ -45,7 +44,7 @@ class AuthListener
     public function onLogin(Login $event)
     {
         /** @var User $user */
-        $user = Auth::user();
+        $user = auth()->user();
         $ip = Request::ip();
         //更新資料
         $user->last_login_at = Carbon::now();

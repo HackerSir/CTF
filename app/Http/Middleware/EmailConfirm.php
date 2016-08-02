@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
 class EmailConfirm
 {
@@ -17,7 +16,7 @@ class EmailConfirm
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        $user = Auth::guard($guard)->user();
+        $user = auth()->guard($guard)->user();
         if (!$user->isConfirmed) {
             //跳轉至重送驗證信頁面
             return redirect()->route('auth.resend-confirm-mail')->with('warning', '尚未完成信箱驗證');
