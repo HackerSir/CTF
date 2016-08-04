@@ -7,14 +7,6 @@ class AuthTest extends TestCase
 {
     use DatabaseTransactions;
 
-    protected function setUp()
-    {
-        parent::setUp();
-
-        // 準備一組帳號做登入測試
-
-    }
-
     public function testRegister() {
         // arrange
         $userName = 'CTF';
@@ -37,7 +29,22 @@ class AuthTest extends TestCase
     }
 
     public function testLogin() {
+        // arrange
+        $password = 'forge1234';
+        $loginUser = [
+            'email' => 'ctf2@example.com',
+            'password' => Hash::make($password)
+        ];
 
+        $user = factory(Hackersir\User::class)->make($loginUser);
+        $user->save();
+
+        // act & assert
+        $this->visit('login')
+            ->type($loginUser['email'], 'email')
+            ->type($password, 'password')
+            ->press('Login')
+            ->seePageIs('/');
     }
 
 }
