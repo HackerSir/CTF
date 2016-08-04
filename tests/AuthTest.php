@@ -12,10 +12,10 @@ class AuthTest extends TestCase
         parent::setUp();
 
         // 準備一組帳號做登入測試
-
     }
 
-    public function testRegister() {
+    public function testRegister()
+    {
         // arrange
         $userName = 'CTF';
         $userEmail = 'ctf@example.com';
@@ -36,8 +36,7 @@ class AuthTest extends TestCase
         $this->assertTrue(Hash::check($userPassword, $user->getAuthPassword()));
     }
 
-    public function testLogin() {
-
+    public function testLogin()
+    {
     }
-
 }
