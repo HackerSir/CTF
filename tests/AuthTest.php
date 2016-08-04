@@ -7,7 +7,8 @@ class AuthTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testRegister() {
+    public function testRegister()
+    {
         // arrange
         $userName = 'CTF';
         $userEmail = 'ctf@example.com';
@@ -28,12 +29,13 @@ class AuthTest extends TestCase
         $this->assertTrue(Hash::check($userPassword, $user->getAuthPassword()));
     }
 
-    public function testLogin() {
+    public function testLogin()
+    {
         // arrange
         $password = 'forge1234';
         $loginUser = [
             'email' => 'ctf2@example.com',
-            'password' => Hash::make($password)
+            'password' => Hash::make($password),
         ];
 
         $user = factory(Hackersir\User::class)->make($loginUser);
@@ -46,5 +48,4 @@ class AuthTest extends TestCase
             ->press('Login')
             ->seePageIs('/');
     }
-
 }
