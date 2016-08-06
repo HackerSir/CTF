@@ -40,20 +40,24 @@ class LaravelMenu
                     );
                 }
                 //管理員
-                if (Entrust::hasRole('admin')) {
+                if (Entrust::can('menu.view')) {
                     /** @var \Lavary\Menu\Builder $adminMenu */
                     $adminMenu = $menu->add('管理員', 'javascript:void(0)');
+
                     if (Entrust::can(['user.manage', 'user.view'])) {
                         $adminMenu->add('會員清單', ['route' => 'user.index'])->active('user/*');
                     }
+
                     if (Entrust::can('role.manage')) {
                         $adminMenu->add('角色管理', ['route' => 'role.index']);
                     }
 
-                    $adminMenu->add(
-                        '記錄檢視器 <i class="external icon"></i>',
-                        ['route' => 'log-viewer::dashboard']
-                    )->link->attr('target', '_blank');
+                    if (Entrust::can('log-viewer.access')) {
+                        $adminMenu->add(
+                            '記錄檢視器 <i class="external icon"></i>',
+                            ['route' => 'log-viewer::dashboard']
+                        )->link->attr('target', '_blank');
+                    }
                 }
                 /** @var \Lavary\Menu\Builder $userMenu */
                 $userMenu = $menu->add(auth()->user()->name, 'javascript:void(0)');
