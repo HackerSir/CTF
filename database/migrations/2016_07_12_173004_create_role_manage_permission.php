@@ -14,9 +14,9 @@ class CreateRoleManagePermission extends Migration
     public function up()
     {
         $permRoleManage = Permission::create([
-            'name'         => 'role.manage',
+            'name' => 'role.manage',
             'display_name' => '管理角色',
-            'description'  => '新增、修改、刪除角色',
+            'description' => '新增、修改、刪除角色',
         ]);
 
         /** @var Role $admin */

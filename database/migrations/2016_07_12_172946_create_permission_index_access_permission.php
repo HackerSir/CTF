@@ -14,9 +14,9 @@ class CreatePermissionIndexAccessPermission extends Migration
     public function up()
     {
         $permPermissionIndexAccess = Permission::create([
-            'name'         => 'permission.index.access',
+            'name' => 'permission.index.access',
             'display_name' => '進入權限面板',
-            'description'  => '進入權限面板，查看各角色權限清單',
+            'description' => '進入權限面板，查看各角色權限清單',
         ]);
 
         /** @var Role $admin */

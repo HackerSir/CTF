@@ -42,18 +42,18 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name'         => 'required|unique:roles,name',
+            'name' => 'required|unique:roles,name',
             'display_name' => 'required',
-            'permissions'  => 'array',
-            'color'        => 'required|in:' . implode(',', Role::$validColors),
+            'permissions' => 'array',
+            'color' => 'required|in:' . implode(',', Role::$validColors),
         ]);
 
         $role = Role::create([
-            'name'         => $request->get('name'),
+            'name' => $request->get('name'),
             'display_name' => $request->get('display_name'),
-            'description'  => $request->get('description'),
-            'color'        => $request->get('color'),
-            'protect'      => false,
+            'description' => $request->get('description'),
+            'color' => $request->get('color'),
+            'protect' => false,
         ]);
         $role->perms()->sync($request->get('permissions') ?: []);
 
@@ -83,24 +83,24 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $this->validate($request, [
-            'name'         => 'required|unique:roles,name,' . $role->id . ',id',
+            'name' => 'required|unique:roles,name,' . $role->id . ',id',
             'display_name' => 'required',
-            'permissions'  => 'array',
-            'color'        => 'required|in:' . implode(',', Role::$validColors),
+            'permissions' => 'array',
+            'color' => 'required|in:' . implode(',', Role::$validColors),
         ]);
 
         if ($role->protect) {
             $role->update([
                 'display_name' => $request->get('display_name'),
-                'description'  => $request->get('description'),
-                'color'        => $request->get('color'),
+                'description' => $request->get('description'),
+                'color' => $request->get('color'),
             ]);
         } else {
             $role->update([
-                'name'         => $request->get('name'),
+                'name' => $request->get('name'),
                 'display_name' => $request->get('display_name'),
-                'description'  => $request->get('description'),
-                'color'        => $request->get('color'),
+                'description' => $request->get('description'),
+                'color' => $request->get('color'),
             ]);
             $role->perms()->sync($request->get('permissions') ?: []);
         }

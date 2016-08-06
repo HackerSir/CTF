@@ -2,7 +2,7 @@
 
 return [
     // --- The default avatar size
-    'size'      => 80,
+    'size' => 80,
 
     // --- The default avatar to display if we have no results
     // (bool)   false
@@ -12,7 +12,7 @@ return [
     // (string) monsterid: a generated 'monster' with different colors, faces, etc.
     // (string) wavatar: generated faces with differing features and backgrounds.
     // (string) retro: awesome generated, 8-bit arcade-style pixelated faces.
-    'default'   => 'identicon',
+    'default' => 'identicon',
 
     // --- Set the type of avatars we allow to show
     // - g: suitable for display on all websites with any audience type.

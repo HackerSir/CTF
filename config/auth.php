@@ -14,7 +14,7 @@ return [
     */
 
     'defaults' => [
-        'guard'     => 'web',
+        'guard' => 'web',
         'passwords' => 'users',
     ],
 
@@ -37,12 +37,12 @@ return [
 
     'guards' => [
         'web' => [
-            'driver'   => 'session',
+            'driver' => 'session',
             'provider' => 'users',
         ],
 
         'api' => [
-            'driver'   => 'token',
+            'driver' => 'token',
             'provider' => 'users',
         ],
     ],
@@ -72,12 +72,12 @@ return [
      * https://github.com/Zizaco/entrust/issues/472
      * \Zizaco\Entrust\Traits\EntrustRoleTrait::users
      */
-    'model'  => Hackersir\User::class,
+    'model' => Hackersir\User::class,
 
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model'  => Hackersir\User::class,
+            'model' => Hackersir\User::class,
         ],
 
         // 'users' => [
@@ -108,9 +108,9 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'email'    => 'auth.emails.password',
-            'table'    => 'password_resets',
-            'expire'   => 60,
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
         ],
     ],
 

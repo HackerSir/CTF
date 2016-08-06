@@ -13,9 +13,9 @@ class CreateAdminRole extends Migration
     public function up()
     {
         $admin = Role::create([
-            'name'         => 'admin',
+            'name' => 'admin',
             'display_name' => '管理員',
-            'description'  => '擁有最高權限的網站管理者',
+            'description' => '擁有最高權限的網站管理者',
         ]);
     }
 

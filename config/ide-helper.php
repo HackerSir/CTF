@@ -12,7 +12,7 @@ return [
     */
 
     'filename' => '_ide_helper',
-    'format'   => 'php',
+    'format' => 'php',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,18 +56,18 @@ return [
 
     'extra' => [
         'Eloquent' => ['Illuminate\Database\Eloquent\Builder', 'Illuminate\Database\Query\Builder'],
-        'Session'  => ['Illuminate\Session\Store'],
+        'Session' => ['Illuminate\Session\Store'],
     ],
 
     'magic' => [
         'Log' => [
-            'debug'     => 'Monolog\Logger::addDebug',
-            'info'      => 'Monolog\Logger::addInfo',
-            'notice'    => 'Monolog\Logger::addNotice',
-            'warning'   => 'Monolog\Logger::addWarning',
-            'error'     => 'Monolog\Logger::addError',
-            'critical'  => 'Monolog\Logger::addCritical',
-            'alert'     => 'Monolog\Logger::addAlert',
+            'debug' => 'Monolog\Logger::addDebug',
+            'info' => 'Monolog\Logger::addInfo',
+            'notice' => 'Monolog\Logger::addNotice',
+            'warning' => 'Monolog\Logger::addWarning',
+            'error' => 'Monolog\Logger::addError',
+            'critical' => 'Monolog\Logger::addCritical',
+            'alert' => 'Monolog\Logger::addAlert',
             'emergency' => 'Monolog\Logger::addEmergency',
         ],
     ],
@@ -82,7 +82,7 @@ return [
     |
     */
 
-    'interfaces'      => [],
+    'interfaces' => [],
 
     /*
     |--------------------------------------------------------------------------

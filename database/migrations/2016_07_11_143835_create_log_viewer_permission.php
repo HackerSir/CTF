@@ -14,9 +14,9 @@ class CreateLogViewerPermission extends Migration
     public function up()
     {
         $permLogViewerAccess = Permission::create([
-            'name'         => 'log-viewer.access',
+            'name' => 'log-viewer.access',
             'display_name' => '進入 Log Viewer 面板',
-            'description'  => '進入 Log Viewer 面板，對網站記錄進行查詢與管理',
+            'description' => '進入 Log Viewer 面板，對網站記錄進行查詢與管理',
         ]);
 
         /** @var Role $admin */
