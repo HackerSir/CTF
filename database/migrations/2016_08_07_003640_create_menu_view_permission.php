@@ -1,7 +1,6 @@
 <?php
 
 use App\Role;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 use App\Permission;
 
@@ -15,9 +14,9 @@ class CreateMenuViewPermission extends Migration
     public function up()
     {
         $permMenuView = Permission::create([
-            'name'         => 'menu.view',
+            'name' => 'menu.view',
             'display_name' => '檢視選單',
-            'description'  => '看到管理員選單',
+            'description' => '看到管理員選單',
         ]);
 
 
