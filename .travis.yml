@@ -1,14 +1,21 @@
 language: php
 
+service:
+  - redis-server
+
+addons:
+  mariadb: '10.1'
+
 php:
   - 5.6
   - 7
 
 before_script:
   - cp .env.travis .env
-  - mysql -e 'create database homestead_test;'
   - composer self-update
   - composer install --prefer-dist --optimize-autoloader --quiet
+  - mysql -e 'CREATE DATABASE homestead_test;'
+  - php artisan migrate
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
