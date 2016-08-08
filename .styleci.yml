@@ -2,6 +2,7 @@ preset: laravel
 
 enabled:
   - concat_with_spaces
+  - align_double_arrow
 
 disabled:
   - phpdoc_summary
