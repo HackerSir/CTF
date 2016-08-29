@@ -34,7 +34,7 @@ class AuthTest extends TestCase
         // arrange
         $password = 'forge1234';
         $loginUser = [
-            'email' => 'ctf2@example.com',
+            'email'    => 'ctf2@example.com',
             'password' => Hash::make($password),
         ];
 
