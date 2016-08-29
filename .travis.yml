@@ -8,9 +8,9 @@ php:
   - 7
 
 before_script:
-  - cp .env.travis .env
   - composer self-update
   - composer install --prefer-dist --optimize-autoloader --quiet
+  - cp .env.travis .env
   - mysql -e 'CREATE DATABASE homestead_test;'
   - php artisan migrate
 

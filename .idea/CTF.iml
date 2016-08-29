@@ -35,6 +35,5 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="CTF node_modules" level="project" />
   </component>
 </module>
